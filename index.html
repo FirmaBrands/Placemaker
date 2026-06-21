@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>בני חליף · Placemaker - ניהול שמייצר ערך</title>
+<meta name="description" content="בני חליף, Placemaker - הופך מרכזים מסחריים למנועי ערך אמיתי. מקסום NOI, עליית שווי ויציבות ארוכת טווח.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://REPLACE-WITH-YOUR-DOMAIN.co.il/">
+
+<!-- favicon: brand "sticks" mark, inline (no extra request) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%23000000'/%3E%3Crect%20x='7'%20y='8'%20width='4'%20height='16'%20fill='%23db6647'/%3E%3Crect%20x='14'%20y='8'%20width='4'%20height='16'%20fill='%23ca76e7'/%3E%3Crect%20x='21'%20y='8'%20width='4'%20height='16'%20fill='%23695d3d'/%3E%3C/svg%3E">
+
+<!-- ===== SOCIAL SHARING (WhatsApp / LinkedIn / Facebook link previews) =====
+     Replace the domain + image URL once the site is live. og-image should be 1200×630. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="בני חליף · Placemaker">
+<meta property="og:title" content="בני חליף · Placemaker — ניהול שמייצר ערך">
+<meta property="og:description" content="הופך מרכזים מסחריים למנועי ערך אמיתי. מקסום NOI, עליית שווי ויציבות ארוכת טווח.">
+<meta property="og:url" content="https://REPLACE-WITH-YOUR-DOMAIN.co.il/">
+<meta property="og:image" content="https://REPLACE-WITH-YOUR-DOMAIN.co.il/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="בני חליף · Placemaker — ניהול שמייצר ערך">
+<meta name="twitter:description" content="הופך מרכזים מסחריים למנועי ערך אמיתי. מקסום NOI, עליית שווי ויציבות ארוכת טווח.">
+<meta name="twitter:image" content="https://REPLACE-WITH-YOUR-DOMAIN.co.il/og-image.jpg">
+
+<!-- ===== SEO: business/person structured data ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "בני חליף · Placemaker",
+  "description": "ניהול והשבחת מרכזים מסחריים — מקסום NOI, עליית שווי ויציבות ארוכת טווח.",
+  "url": "https://REPLACE-WITH-YOUR-DOMAIN.co.il/",
+  "telephone": "+972-50-000-0000",
+  "email": "REPLACE@EMAIL.co.il",
+  "areaServed": "IL",
+  "founder": { "@type": "Person", "name": "בני חליף" },
+  "knowsAbout": ["ניהול מרכזים מסחריים", "השבחת נכסים", "NOI", "תמהיל שוכרים", "נדל״ן מסחרי"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+<script>/* default to light; respect a saved choice; set before paint to avoid a flash */(function(){try{if(localStorage.getItem('pm-theme')!=='dark')document.documentElement.setAttribute('data-theme','light');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<style>
+/* ============================================================
+   Placemaker — dark-luxe rebuild, with light theme
+   Palette (only):  #fffff3  #ca76e7  #695d3d  #db6647  #000000
+   Type (only):     Assistant 400 / 700
+   Brand language:  sticks & lines, building things up
+   ============================================================ */
+:root{
+  --ink:#000000;
+  --cream:#fffff3;
+  --orange:#db6647;
+  --purple:#ca76e7;
+  --olive:#695d3d;
+
+  /* literal cream tiers — used by the always-dark islands (equation, footer) */
+  --cream-78:rgba(255,255,243,.78);
+  --cream-58:rgba(255,255,243,.58);
+  --cream-40:rgba(255,255,243,.40);
+
+  /* literal ink tiers — used by the always-light island (contact) */
+  --ink-70:rgba(0,0,0,.70);
+  --ink-52:rgba(0,0,0,.52);
+  --ink-38:rgba(0,0,0,.38);
+  --ink-hair:rgba(0,0,0,.16);
+
+  /* ---- themeable tokens (DARK = default) ---- */
+  --bg:#000000;
+  --fg:#fffff3;
+  --fg-78:rgba(255,255,243,.78);
+  --fg-58:rgba(255,255,243,.58);
+  --fg-40:rgba(255,255,243,.40);
+  --hair:rgba(255,255,243,.13);
+  --hair-soft:rgba(255,255,243,.07);
+  --panel:rgba(255,255,243,.035);
+  --panel-2:rgba(255,255,243,.06);
+  --header-bg:rgba(0,0,0,.66);
+  --header-bg-2:rgba(0,0,0,.82);
+  --btn-wipe:#fffff3;
+  --hero-wash:.85;
+
+  --maxw:1180px;
+  --pad:clamp(20px,5vw,64px);
+}
+html[data-theme="light"]{
+  --bg:#fffff3;
+  --fg:#000000;
+  --fg-78:rgba(0,0,0,.74);
+  --fg-58:rgba(0,0,0,.55);
+  --fg-40:rgba(0,0,0,.40);
+  --hair:rgba(0,0,0,.15);
+  --hair-soft:rgba(0,0,0,.085);
+  --panel:rgba(0,0,0,.028);
+  --panel-2:rgba(0,0,0,.05);
+  --header-bg:rgba(255,255,243,.74);
+  --header-bg-2:rgba(255,255,243,.90);
+  --btn-wipe:#000000;
+  --hero-wash:.45;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Assistant',system-ui,Arial,sans-serif;font-weight:400;
+  color:var(--fg);background:var(--bg);line-height:1.72;font-size:17px;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;
+  transition:background-color .45s ease,color .45s ease;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+h1,h2,h3{font-family:'Assistant',sans-serif;font-weight:700;line-height:1.05;letter-spacing:-.02em}
+strong,b{font-weight:700}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--orange);color:var(--ink)}
+img,svg{display:block}
+
+/* ---------- shared brand primitives ---------- */
+.rule{display:flex;gap:7px;align-items:center;margin-top:34px}
+.rule i{display:block;height:5px;transform:scaleX(0);transform-origin:right;
+  transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.rule i:nth-child(1){width:60px;background:var(--orange);box-shadow:0 0 18px rgba(219,102,71,.5)}
+.rule i:nth-child(2){width:30px;background:var(--purple)}
+.rule i:nth-child(3){width:15px;background:var(--olive)}
+.reveal.in .rule i{transform:scaleX(1)}
+.reveal.in .rule i:nth-child(2){transition-delay:.12s}
+.reveal.in .rule i:nth-child(3){transition-delay:.24s}
+.build{display:flex;align-items:flex-end;gap:10px;height:78px;direction:ltr;margin-top:36px}
+.build i{flex:1;height:var(--h);background:var(--c);transform:scaleY(0);transform-origin:bottom;
+  border-radius:1px;transition:transform .85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in .build i{transform:scaleY(1)}
+.reveal.in .build i:nth-child(1){transition-delay:.08s}
+.reveal.in .build i:nth-child(2){transition-delay:.22s}
+.reveal.in .build i:nth-child(3){transition-delay:.36s}
+.reveal.in .build i:nth-child(4){transition-delay:.50s}
+.fx{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.fl{position:absolute;width:42px;height:2px;background:var(--c,var(--orange));color:var(--c,var(--orange));opacity:.5;
+  transform:rotate(var(--r,0deg));box-shadow:0 0 12px currentColor}
+
+/* ---------- eyebrows / section tags ---------- */
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-weight:700;font-size:.98rem;
+  letter-spacing:.01em;color:var(--fg)}
+.eyebrow::before{content:"";width:34px;height:5px;background:var(--orange);flex:0 0 auto;
+  box-shadow:0 0 16px rgba(219,102,71,.7)}
+.tag{display:inline-flex;align-items:center;gap:13px;font-weight:700;font-size:.86rem;
+  letter-spacing:.14em;color:var(--fg-78)}
+.tag::before{content:"";width:22px;height:5px;background:var(--c,var(--orange));flex:0 0 auto;
+  box-shadow:0 0 14px var(--c,var(--orange))}
+
+.section{position:relative;padding-block:clamp(80px,12vw,156px);border-top:1px solid var(--hair-soft)}
+.section-head{margin-bottom:clamp(40px,5.5vw,68px)}
+.section-head h2{font-size:clamp(2.1rem,4.8vw,3.6rem);margin-top:22px;max-width:20ch;text-wrap:balance}
+
+/* ---------- buttons ---------- */
+.btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;gap:12px;
+  font-family:inherit;font-weight:700;font-size:1.04rem;line-height:1;letter-spacing:-.005em;
+  background:var(--orange);color:var(--ink);padding:18px 32px;border:none;cursor:pointer;white-space:nowrap;
+  box-shadow:0 0 0 rgba(219,102,71,0);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--btn-wipe);
+  transform:scaleX(0);transform-origin:right;transition:transform .44s cubic-bezier(.2,.7,.2,1)}
+.btn:hover::before{transform:scaleX(1)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(219,102,71,.34)}
+html[data-theme="light"] .btn:hover{color:var(--cream)}
+.btn-text{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:1.04rem;
+  padding:18px 4px;position:relative;color:var(--fg)}
+.btn-text::after{content:"";position:absolute;inset-inline:4px;bottom:10px;height:2px;background:var(--fg);
+  transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.btn-text:hover::after{transform:scaleX(1)}
+.ar{width:11px;height:11px;position:relative;display:inline-block;flex:0 0 auto;animation:nudge 1.7s ease-in-out infinite}
+.ar::before{content:"";position:absolute;inset:0;margin:auto;width:8px;height:8px;
+  border:solid currentColor;border-width:0 0 2.4px 2.4px;transform:rotate(45deg)}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(-5px)}}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:var(--header-bg);backdrop-filter:blur(16px) saturate(1.2);
+  border-bottom:1px solid transparent;transition:border-color .3s ease,background .3s ease}
+header.scrolled{border-bottom-color:var(--hair);background:var(--header-bg-2)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:86px;gap:22px}
+.logo-svg{height:30px;width:auto;display:block;overflow:visible}
+.logo-svg path{transform-box:fill-box;transform-origin:center;
+  transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.nav-desktop{margin-inline:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-weight:700;font-size:1rem;position:relative;padding:6px 0;color:var(--fg-78);transition:color .2s ease}
+.nav-links a:hover{color:var(--fg)}
+.nav-links a::after{content:"";position:absolute;bottom:0;inset-inline-start:0;height:3px;width:0;
+  background:var(--c,var(--orange));box-shadow:0 0 12px var(--c,var(--orange));transition:width .28s ease}
+.nav-links a:hover::after{width:100%}
+.nav-links li:nth-child(1) a{--c:var(--orange)}
+.nav-links li:nth-child(2) a{--c:var(--purple)}
+.nav-links li:nth-child(3) a{--c:var(--olive)}
+.nav-links li:nth-child(4) a{--c:var(--orange)}
+.nav .btn{padding:13px 24px;font-size:.98rem}
+
+/* hamburger + mobile nav */
+.nav-toggle{display:none;align-items:center;justify-content:center;width:46px;height:46px;flex:0 0 auto;
+  border:1px solid var(--hair);background:transparent;cursor:pointer;
+  transition:border-color .25s ease,transform .25s ease}
+.nav-toggle:hover{border-color:var(--orange);transform:translateY(-2px)}
+.nav-toggle-bars{display:flex;flex-direction:column;gap:4px;width:20px}
+.nav-toggle-bars i{display:block;height:3px;width:100%}
+.nav-toggle-bars i:nth-child(1){background:var(--orange)}
+.nav-toggle-bars i:nth-child(2){background:var(--purple)}
+.nav-toggle-bars i:nth-child(3){background:var(--olive)}
+.mobile-nav{display:none;flex-direction:column;gap:4px;padding:10px var(--pad) 24px;border-bottom:1px solid var(--hair)}
+.mobile-nav.open{display:flex}
+.mobile-nav ul{list-style:none;display:flex;flex-direction:column}
+.mobile-nav li a{display:block;font-weight:700;font-size:1.12rem;color:var(--fg);padding:15px 2px;border-top:1px solid var(--hair-soft)}
+.mobile-nav li:first-child a{border-top:none}
+.mobile-nav .btn{margin-top:16px;justify-content:center}
+@media(max-width:980px){.nav-toggle{display:inline-flex}}
+@media(max-width:520px){.nav .btn{display:none}}
+
+/* theme toggle (sun / moon drawn from sticks & lines) */
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;flex:0 0 auto;
+  border:1px solid var(--hair);background:transparent;color:var(--fg);cursor:pointer;
+  transition:border-color .25s ease,color .25s ease,transform .25s ease}
+.theme-toggle:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px)}
+.theme-toggle svg{width:20px;height:20px;display:block}
+.theme-toggle .ic-moon{display:none}
+html[data-theme="light"] .theme-toggle .ic-sun{display:none}
+html[data-theme="light"] .theme-toggle .ic-moon{display:block}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;padding-block:clamp(72px,11vw,138px) clamp(52px,7vw,90px)}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:var(--hero-wash);
+  background:
+    radial-gradient(60% 70% at 82% 6%,rgba(219,102,71,.20),transparent 60%),
+    radial-gradient(50% 60% at 10% 18%,rgba(202,118,231,.14),transparent 62%),
+    radial-gradient(60% 55% at 50% 108%,rgba(105,93,61,.18),transparent 60%)}
+.hero .wrap{position:relative;z-index:1}
+.hero-copy{max-width:78%}
+.hero h1{font-size:clamp(2.5rem,5.8vw,5rem);line-height:1.02;letter-spacing:-.032em;margin-top:32px;text-wrap:balance}
+.hero h1 .l1{display:block;color:var(--fg);text-wrap:balance}
+.hero h1 .accent{display:block;width:fit-content;color:var(--fg);text-wrap:balance;
+  text-decoration:underline;text-decoration-color:var(--orange);
+  text-decoration-thickness:.07em;text-underline-offset:.16em;text-decoration-skip-ink:none}
+html:not([data-theme="light"]) .hero h1 .accent{filter:drop-shadow(0 2px 14px rgba(219,102,71,.4))}
+.hero .lead{font-size:clamp(1.16rem,2.1vw,1.52rem);color:var(--fg-78);max-width:44ch;margin-top:32px;text-wrap:pretty}
+.hero-cta{display:flex;align-items:center;gap:10px 26px;flex-wrap:wrap;margin-top:44px}
+
+/* brand-build: the wordmark assembles itself from its strokes */
+.brand-build{position:relative;margin-top:clamp(60px,9vw,108px);
+  border:1px solid var(--hair);background:var(--panel);
+  padding:clamp(34px,5vw,64px) clamp(24px,4vw,56px);overflow:hidden}
+.brand-build::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:var(--hero-wash);
+  background:radial-gradient(70% 120% at 50% 120%,rgba(219,102,71,.12),transparent 70%)}
+.assembly{position:relative;-webkit-tap-highlight-color:transparent}
+.assembly-logo{width:100%;max-width:780px;height:auto;margin-inline:auto;display:block;overflow:visible;
+  filter:drop-shadow(0 8px 30px rgba(0,0,0,.4))}
+.assembly-logo path{transform-box:fill-box;transform-origin:50% 50%;
+  transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .5s ease}
+
+/* stats */
+.hero-stats{margin-top:clamp(50px,7vw,84px)}
+.hero-stats .tag{margin-bottom:34px}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{position:relative;padding:8px 0 8px 30px}
+.stat + .stat{border-inline-start:1px solid var(--hair);padding-inline-start:clamp(22px,3vw,50px)}
+.stat .s-stick{display:block;width:32px;height:6px;background:var(--c,var(--orange));margin-bottom:20px;
+  box-shadow:0 0 16px var(--c,var(--orange))}
+.stat .s-num{font-weight:700;font-size:clamp(2.7rem,6vw,4.6rem);line-height:.9;letter-spacing:-.03em;color:var(--fg)}
+.stat .s-lab{color:var(--fg-58);font-size:1.02rem;margin-top:14px;max-width:24ch}
+
+/* ---------- problem ---------- */
+.problem-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(36px,6vw,76px);align-items:center}
+.problem h2{font-size:clamp(2.05rem,4.7vw,3.4rem);max-width:20ch;line-height:1.12;text-wrap:balance}
+.problem h2 .x{color:var(--orange);text-shadow:0 0 30px rgba(219,102,71,.5)}
+.problem .sub{color:var(--fg-78);font-size:1.18rem;margin-top:26px;max-width:46ch;text-wrap:pretty}
+.problem-art{position:relative;display:flex;justify-content:center}
+.problem-art::before{content:"";position:absolute;inset:8% 14%;opacity:var(--hero-wash);
+  background:radial-gradient(circle,rgba(202,118,231,.18),transparent 70%)}
+.problem-art svg{position:relative;width:100%;max-width:280px;height:auto;display:block;overflow:visible;
+  filter:drop-shadow(0 6px 20px rgba(0,0,0,.35))}
+.problem-art svg path{transform-box:fill-box;transform-origin:center}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,88px);align-items:center}
+.about .name{font-size:clamp(1.95rem,4vw,3rem);font-weight:700;line-height:1.14;margin-top:24px;color:var(--fg);text-wrap:balance}
+.about .name b{color:var(--orange);text-shadow:0 0 28px rgba(219,102,71,.45)}
+.about-copy p.body{font-size:1.14rem;color:var(--fg-78);margin-top:22px;max-width:42ch;text-wrap:pretty}
+.goal{position:relative;padding:clamp(30px,3.6vw,48px) clamp(28px,3.4vw,46px);
+  border:1px solid var(--hair);background:var(--panel)}
+.goal::before{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:6px;
+  background:linear-gradient(180deg,var(--orange) 0 33%,var(--purple) 33% 66%,var(--olive) 66% 100%);
+  box-shadow:0 0 22px rgba(219,102,71,.4)}
+.goal h3{font-size:1.55rem;margin-bottom:26px;color:var(--fg)}
+.goal-list{list-style:none;display:grid;gap:18px}
+.goal-list li{display:flex;align-items:center;gap:16px;font-size:1.22rem;font-weight:700;color:var(--fg)}
+.goal-list li::before{content:"";width:26px;height:7px;flex:0 0 auto;background:var(--orange);box-shadow:0 0 14px rgba(219,102,71,.6)}
+.goal-list li:nth-child(2)::before{background:var(--purple);box-shadow:0 0 14px rgba(202,118,231,.6)}
+.goal-list li:nth-child(3)::before{background:var(--olive);box-shadow:0 0 14px rgba(105,93,61,.7)}
+
+/* ---------- audience (elevated panels) ---------- */
+.aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,1.6vw,22px)}
+.aud-card{position:relative;padding:clamp(30px,3vw,44px) clamp(24px,2.4vw,36px);overflow:hidden;
+  border:1px solid var(--hair);background:var(--panel);transition:transform .4s cubic-bezier(.2,.7,.2,1),background .4s ease}
+.aud-card::after{content:"";position:absolute;top:0;inset-inline:0;height:5px;background:var(--c,var(--orange));
+  box-shadow:0 0 18px var(--c,var(--orange));transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.aud-card:hover{transform:translateY(-6px);background:var(--panel-2)}
+.aud-card:hover::after{transform:scaleX(1)}
+.aud-ic{height:74px;width:auto;display:block;margin-bottom:28px;filter:drop-shadow(0 4px 14px rgba(0,0,0,.35))}
+.aud-card h3{font-size:1.34rem;color:var(--fg)}
+.aud-card p{color:var(--fg-58);margin-top:12px}
+
+/* ---------- results (editorial rows) ---------- */
+.res-list{display:grid}
+.res-row{position:relative;display:grid;grid-template-columns:84px 1fr;gap:clamp(20px,4vw,56px);
+  align-items:center;padding:clamp(28px,3.2vw,42px) 0;border-top:1px solid var(--hair-soft)}
+.res-row:last-child{border-bottom:1px solid var(--hair-soft)}
+.res-ic{width:72px;height:auto;display:block;filter:drop-shadow(0 4px 12px rgba(0,0,0,.35))}
+.res-row .r-main{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+.res-row h3{font-size:clamp(1.45rem,2.8vw,2.1rem);color:var(--fg)}
+.res-row p{color:var(--fg-58);font-size:1.1rem}
+.res-row .r-stick{position:absolute;inset-inline-start:0;top:50%;width:0;height:6px;background:var(--c,var(--orange));
+  box-shadow:0 0 16px var(--c,var(--orange));transform:translateY(-50%);transition:width .5s cubic-bezier(.2,.7,.2,1)}
+.res-row:hover .r-stick{width:32px}
+.res-row:hover{padding-inline-start:48px}
+.res-row{transition:padding-inline-start .45s cubic-bezier(.2,.7,.2,1)}
+
+/* ---------- method (top-stick columns) ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,1.6vw,22px)}
+.svc{position:relative;padding:clamp(32px,3vw,46px) clamp(24px,2.4vw,36px);overflow:hidden;
+  border:1px solid var(--hair);background:var(--panel);transition:background .4s ease,transform .4s cubic-bezier(.2,.7,.2,1)}
+.svc:hover{background:var(--panel-2);transform:translateY(-6px)}
+.svc .topbar{display:flex;gap:6px;margin-bottom:32px}
+.svc .topbar i{height:6px;flex:1;transform:scaleX(0);transform-origin:right;
+  transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.svc .topbar i:nth-child(1){background:var(--orange);box-shadow:0 0 12px rgba(219,102,71,.6)}
+.svc .topbar i:nth-child(2){background:var(--purple);box-shadow:0 0 12px rgba(202,118,231,.6)}
+.svc .topbar i:nth-child(3){background:var(--olive);box-shadow:0 0 12px rgba(105,93,61,.7)}
+.svc:hover .topbar i{transform:scaleX(1)}
+.svc:hover .topbar i:nth-child(2){transition-delay:.08s}
+.svc:hover .topbar i:nth-child(3){transition-delay:.16s}
+.svc-ic{height:68px;width:auto;display:block;margin-bottom:26px;filter:drop-shadow(0 4px 14px rgba(0,0,0,.35))}
+.svc h3{font-size:1.34rem;margin-bottom:12px;color:var(--fg)}
+.svc p{color:var(--fg-58)}
+
+/* ---------- equation (always-dark dramatic thesis) ---------- */
+.eq{background:var(--ink);color:var(--cream);text-align:center;position:relative;overflow:hidden;
+  padding-block:clamp(100px,14vw,184px);border-top:1px solid rgba(255,255,243,.08)}
+.eq::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(40% 60% at 22% 30%,rgba(219,102,71,.16),transparent 60%),
+    radial-gradient(40% 60% at 78% 32%,rgba(202,118,231,.14),transparent 60%),
+    radial-gradient(60% 70% at 50% 110%,rgba(105,93,61,.18),transparent 60%)}
+.eq .wrap{position:relative;z-index:1}
+.eq .strip{display:flex;width:clamp(84px,12vw,120px);height:8px;margin:0 auto clamp(34px,4vw,50px)}
+.eq .strip i{flex:1}
+.eq .strip i:nth-child(1){background:var(--orange);box-shadow:0 0 18px rgba(219,102,71,.7)}
+.eq .strip i:nth-child(2){background:var(--purple);box-shadow:0 0 18px rgba(202,118,231,.7)}
+.eq .strip i:nth-child(3){background:var(--olive);box-shadow:0 0 18px rgba(105,93,61,.8)}
+.eq .kick{font-weight:700;letter-spacing:.24em;font-size:1rem;color:var(--cream-58);margin-bottom:clamp(32px,4vw,48px)}
+.eq-flow{display:flex;align-items:center;justify-content:center;gap:clamp(16px,3vw,40px);flex-wrap:wrap;
+  margin-bottom:clamp(36px,4.4vw,56px)}
+.ew{position:relative;font-weight:700;font-size:clamp(2.2rem,5.8vw,4.2rem);letter-spacing:-.03em;line-height:1;
+  padding-bottom:.16em;color:var(--cream)}
+.ew::after{content:"";position:absolute;inset-inline:0;bottom:0;height:.1em;background:var(--uc);
+  box-shadow:0 0 24px var(--uc);transform:scaleX(0);transform-origin:right;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.eq.in .ew::after{transform:none}
+.e1{--uc:var(--orange)} .e2{--uc:var(--purple)} .e3{--uc:var(--cream)}
+.eq.in .e2::after{transition-delay:.16s}
+.eq.in .e3::after{transition-delay:.32s}
+.ec{display:block;width:clamp(18px,2.4vw,28px);height:3px;background:var(--cream-40);flex:0 0 auto}
+.eq-eq{display:flex;flex-direction:column;gap:7px;align-items:center;width:max-content;margin:0 auto clamp(32px,4vw,50px)}
+.eq-eq i{display:block;width:clamp(34px,4vw,48px);height:4px;background:var(--cream);transform:scaleX(0);
+  transition:transform .5s cubic-bezier(.2,.7,.2,1) .44s}
+.eq.in .eq-eq i{transform:none}
+.eq.in .eq-eq i:last-child{transition-delay:.56s}
+.eq-claim{font-size:clamp(1.55rem,3.2vw,2.5rem);font-weight:700;line-height:1.34;letter-spacing:-.012em;
+  max-width:28ch;margin:0 auto;color:var(--cream);text-wrap:balance}
+.eq-claim .neg{display:block;font-size:clamp(1rem,1.7vw,1.22rem);font-weight:400;color:var(--cream-58);
+  margin-bottom:clamp(16px,1.8vw,22px);letter-spacing:0}
+.eq-claim em{font-style:normal;color:var(--orange);text-shadow:0 0 30px rgba(219,102,71,.55)}
+
+/* ---------- contact (always-light conversion chapter) ---------- */
+.contact{background:var(--cream);color:var(--ink);border-top:none;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;top:0;inset-inline:0;height:7px;z-index:2;
+  background:linear-gradient(90deg,var(--orange) 0 25%,var(--purple) 25% 50%,var(--olive) 50% 75%,var(--orange) 75% 100%)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,82px);align-items:start}
+.contact .tag{color:var(--ink)}
+.contact .tag::before{box-shadow:none}
+.contact h2{font-size:clamp(1.95rem,4.3vw,3.2rem);max-width:16ch;margin-top:22px;line-height:1.14;color:var(--ink);text-wrap:balance}
+.tagbars{margin-top:38px}
+.tagbars span{display:flex;align-items:center;gap:22px;font-size:1.14rem;font-weight:700;color:var(--ink);
+  padding:18px 2px;border-top:1px solid var(--ink-hair);transition:padding-inline-start .3s ease}
+.tagbars span:last-child{border-bottom:1px solid var(--ink-hair)}
+.tagbars span:hover{padding-inline-start:14px}
+.tagbars span::before{content:"";width:30px;height:5px;flex:0 0 auto;background:var(--orange);
+  transform:scaleX(.34);transform-origin:right;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.reveal.in .tagbars span::before{transform:scaleX(1)}
+.reveal.in .tagbars span:hover::before{transform:scaleX(1.5)}
+.tagbars span:nth-child(2)::before{background:var(--purple)}
+.tagbars span:nth-child(3)::before{background:var(--olive)}
+.tagbars span:nth-child(4)::before{background:var(--orange)}
+.tagbars span:nth-child(5)::before{background:var(--purple)}
+
+/* form */
+form{position:relative;border:1px solid var(--ink-hair);padding:clamp(28px,3.4vw,44px);background:var(--cream)}
+.form-head{display:flex;gap:8px;margin-bottom:4px}
+.form-head i{height:6px;flex:1;background:var(--orange)}
+.form-head i:nth-child(2){background:var(--purple)}
+.form-head i:nth-child(3){background:var(--olive)}
+.form-head i:nth-child(4){background:var(--orange)}
+form h3{font-size:1.55rem;margin:26px 0 6px;color:var(--ink)}
+.field{margin-top:24px}
+form label{display:block;font-weight:700;font-size:.96rem;margin-bottom:8px;color:var(--ink)}
+input,select,textarea{width:100%;padding:12px 2px;border:none;border-bottom:1.5px solid var(--ink);
+  background:transparent;color:var(--ink);border-radius:0;font-family:inherit;font-size:1.05rem;font-weight:400;
+  transition:border-color .2s ease}
+input::placeholder,textarea::placeholder{color:rgba(0,0,0,.56)}
+select{padding-inline-end:24px}
+input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--orange);border-bottom-width:2px}
+textarea{resize:vertical;min-height:80px;line-height:1.6}
+form .btn{width:100%;justify-content:center;margin-top:36px;font-size:1.1rem;padding:18px}
+form .btn::before{background:var(--ink)}
+form .btn:hover{color:var(--cream)}
+.form-thanks{display:none;padding:38px 4px;text-align:center}
+.form-thanks.show{display:block}
+.form-thanks .check{width:64px;height:64px;background:var(--orange);color:var(--cream);display:flex;
+  align-items:center;justify-content:center;margin:0 auto 22px;font-size:2rem;font-weight:700}
+.form-thanks h3{margin:0 0 8px}
+.form-thanks p{color:var(--ink-70)}
+form.sent .form-fields{display:none}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0;pointer-events:none}
+.form-error{display:none;align-items:center;gap:10px;margin-top:18px;color:var(--ink);font-weight:700;font-size:1rem}
+.form-error.show{display:flex}
+.form-error::before{content:"";width:18px;height:5px;background:var(--orange);flex:0 0 auto}
+
+/* ---------- footer (always dark) ---------- */
+footer{background:var(--ink);color:var(--cream-58);padding-block:clamp(44px,6vw,68px);border-top:1px solid rgba(255,255,243,.08)}
+.footer-strip{display:flex;height:7px;margin-bottom:40px}
+.footer-strip i{flex:1}
+.footer-strip i:nth-child(1){background:var(--orange)}
+.footer-strip i:nth-child(2){background:var(--purple)}
+.footer-strip i:nth-child(3){background:var(--olive)}
+.footer-strip i:nth-child(4){background:var(--orange)}
+.footer-row{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.footer-logo{height:26px}
+.credit{font-size:1rem;margin:0}
+.credit a{color:var(--orange);font-weight:700}
+.credit a:hover{text-decoration:underline}
+
+/* ---------- light-theme calming of the neon glows ---------- */
+html[data-theme="light"] .rule i,
+html[data-theme="light"] .stat .s-stick,
+html[data-theme="light"] .eyebrow::before,
+html[data-theme="light"] .tag::before,
+html[data-theme="light"] .goal::before,
+html[data-theme="light"] .goal-list li::before,
+html[data-theme="light"] .aud-card::after,
+html[data-theme="light"] .res-row .r-stick,
+html[data-theme="light"] .svc .topbar i,
+html[data-theme="light"] .nav-links a::after,
+html[data-theme="light"] .fl{box-shadow:none}
+html[data-theme="light"] .problem h2 .x,
+html[data-theme="light"] .about .name b{text-shadow:none}
+html[data-theme="light"] .assembly-logo,
+html[data-theme="light"] .problem-art svg,
+html[data-theme="light"] .aud-ic,
+html[data-theme="light"] .res-ic,
+html[data-theme="light"] .svc-ic{filter:none}
+html[data-theme="light"] .btn:hover{box-shadow:none}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .85s ease,transform .85s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- direct contact (in light contact section) ---------- */
+.contact-direct{margin-top:42px}
+.cd-lead{font-weight:700;color:var(--ink);margin-bottom:12px}
+.cd-item{display:flex;align-items:center;gap:18px;padding:16px 2px;border-top:1px solid var(--ink-hair);color:var(--ink);transition:padding-inline-start .3s ease}
+.cd-item:last-child{border-bottom:1px solid var(--ink-hair)}
+.cd-item:hover{padding-inline-start:12px}
+.cd-stick{width:30px;height:5px;flex:0 0 auto;background:var(--c,var(--orange))}
+.cd-txt{font-size:1.1rem}
+
+/* ---------- form: inline errors + privacy ---------- */
+.field-error{display:none;margin-top:8px;font-size:.92rem;font-weight:700;color:#a83218}
+.field-error.show{display:block}
+input.invalid,textarea.invalid{border-bottom-color:#a83218}
+.form-privacy{margin-top:18px;font-size:.92rem;color:var(--ink-70);line-height:1.65}
+.link-btn{background:none;border:none;padding:0;font:inherit;font-weight:700;color:var(--ink);text-decoration:underline;cursor:pointer}
+.link-btn:hover{color:var(--orange)}
+
+/* ---------- footer links + legal ---------- */
+.footer-links{display:flex;align-items:center;gap:10px 26px;flex-wrap:wrap}
+.footer-links a,.footer-links .link-btn{color:var(--cream-58);font-weight:700;font-size:1rem;text-decoration:none}
+.footer-links a:hover,.footer-links .link-btn:hover{color:var(--cream)}
+.footer-copy{margin-top:22px;font-size:.92rem;color:var(--cream-58)}
+
+/* ---------- modal dialogs ---------- */
+.modal{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal[hidden]{display:none}
+.modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.62)}
+.modal-box{position:relative;z-index:1;background:var(--bg);color:var(--fg);border:1px solid var(--hair);max-width:640px;width:100%;max-height:85vh;overflow:auto;padding:clamp(26px,4vw,44px)}
+.modal-box h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:18px;color:var(--fg)}
+.modal-body{color:var(--fg-78);line-height:1.75}
+.modal-body h3{font-size:1.15rem;color:var(--fg);margin:22px 0 8px}
+.modal-body p{margin-bottom:12px}
+.modal-body a{color:var(--orange);font-weight:700;text-decoration:underline}
+.modal-close{position:absolute;top:10px;inset-inline-end:14px;width:42px;height:42px;background:none;border:none;color:var(--fg);font-size:1.9rem;line-height:1;cursor:pointer}
+.modal-close:hover{color:var(--orange)}
+
+/* ---------- accessibility marker button (universal-access icon) ---------- */
+.a11y-fab{position:fixed;bottom:18px;inset-inline-start:18px;z-index:120;width:52px;height:52px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
+  background:var(--orange);color:#fff;border:2px solid #fff;box-shadow:0 6px 20px rgba(0,0,0,.32);
+  transition:transform .2s ease}
+.a11y-fab:hover{transform:translateY(-2px)}
+.a11y-fab svg{width:27px;height:27px;display:block}
+@media(prefers-reduced-motion:reduce){.a11y-fab{transition:none}}
+
+/* ---------- a11y ---------- */
+a:focus-visible,button:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid var(--orange);outline-offset:3px}
+.skip-link{position:fixed;top:0;inset-inline-end:0;z-index:200;background:var(--cream);color:var(--ink);
+  font-weight:700;padding:12px 22px;transform:translateY(-130%);transition:transform .16s ease}
+.skip-link:focus{transform:none;outline:3px solid var(--orange);outline-offset:-3px}
+main:focus{outline:none}
+
+/* ---------- responsive ---------- */
+@media(max-width:980px){
+  .hero-copy{max-width:100%}
+  .nav-desktop{display:none}
+  .problem-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:46px}
+  .problem-art{order:2;max-width:230px;margin-inline:auto}
+}
+@media(max-width:760px){
+  body{font-size:16px}
+  .stats-grid{grid-template-columns:1fr}
+  .stat + .stat{border-inline-start:none;border-top:1px solid var(--hair);padding-inline-start:30px;margin-top:24px;padding-top:24px}
+  .aud-grid,.svc-grid{grid-template-columns:1fr}
+  .res-row{grid-template-columns:54px 1fr;gap:20px}
+  .res-ic{width:50px}
+}
+@media(max-width:520px){
+  :root{--pad:18px}
+  .nav{height:70px;gap:14px}
+  .hero h1{font-size:clamp(2.3rem,9vw,3.1rem)}
+  .res-row .r-main{gap:6px}
+  .brand-build{padding:26px 18px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none;transition:none}
+  .rule i,.build i,.svc .topbar i,.tagbars span::before,.ew::after,.eq-eq i{transform:none!important;transition:none}
+  .ar{animation:none}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">דלג לתוכן הראשי</a>
+
+<header id="siteHeader">
+  <div class="wrap nav">
+    <a href="#top" aria-label="Placemaker — מעבר לראש העמוד">
+      <svg class="logo-svg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="-1445.60 4238.40 1064.00 174.30">
+        <g>
+          <path d="M-1081.1,4361.9c-4.7,8.5-13,14.5-22.9,16.3-10.3,1.9-20.6-.9-28.5-7.5-8.5-7.2-12.7-17.8-11.6-28.9,1.1-11.2,7.5-21.2,17.3-26.7,7.6-4.3,17-5.3,25.7-2.8s15.8,8,20,15.6l1,1.9,11.8-6.7-.9-1.8c-6.4-13.2-21.8-23.1-37.4-24.1-19.6-1.3-37.3,8.7-46.3,26.1-8.8,17.1-6.7,36.9,5.5,51.8,9.1,11.2,22.8,17.6,37.2,17.6s2.7,0,4.1-.2c15.9-1.3,29.4-10,37.2-23.7l1.1-1.9-12.1-6.9-1,1.9h-.2Z" fill="#695d3d"></path>
+          <path d="M-1293,4262.8h-13.9v126.9h13.9v-126.9Z" fill="#ca76e7"></path>
+          <path d="M-927.1,4262h-13.9v126.9h13.9v-126.9Z" fill="#ca76e7"></path>
+          <path d="M-810.1,4262h-13.8v126.9h13.8v-126.9Z" fill="#db6647"></path>
+          <path d="M-875.6,4377.4l-37-117.3-13.2,4.2,39.7,125.9,10.5-3.3,10.5,3.3,39-123.8.7-2-13.2-4.2-37,117.3h0Z" fill="#695d3d"></path>
+          <path d="M-1360.4,4258.4h-45.3v13.9h47c2.2,0,8.8,3.3,11.2,5.3,9.3,7.6,9.7,18.4,7,26-3.5,9.8-12.3,16.1-22.4,16.2h-42.9v13.5h47c8.6,0,20.5-7.5,25.7-14.3,8.7-11.1,10.4-25.4,4.6-38.4s-17.7-21.3-32-22.2h.1Z" fill="#695d3d"></path>
+          <path d="M-1411.7,4265.8h-13.9v123.9h13.9v-123.9Z" fill="#db6647"></path>
+          <path d="M-1201.2,4367.1c-5.6,6.7-13.7,10.8-22.7,11.5-9.2.8-18.1-2.1-25.1-8-8.5-7.2-12.7-17.8-11.6-28.9,1.1-11.2,7.6-21.2,17.3-26.7,13.6-7.6,31.5-4.5,41.8,7.3l1.5,1.7,9.9-9.9-1.3-1.5c-7.8-8.9-19.9-14.9-31.7-15.7-19.6-1.3-37.3,8.7-46.3,26.1-8.8,17.1-6.7,36.9,5.5,51.8,8.9,10.9,22.1,17.3,36.1,17.6h1c13.7,0,26.5-5.7,35.4-15.7l1.3-1.5-9.6-10.2-1.6,1.8h0v.3Z" fill="#db6647"></path>
+          <path d="M-1175,4301.9h-13.9v86.1h13.9v-86.1Z" fill="#ca76e7"></path>
+          <path d="M-719.1,4367.1c-5.6,6.7-13.7,10.8-22.7,11.5-9.2.8-18.1-2.1-25.1-8-8.5-7.2-12.7-17.8-11.6-28.9,1.1-11.2,7.6-21.2,17.3-26.7,13.6-7.7,31.5-4.5,41.8,7.3l1.5,1.7,9.8-9.9-1.3-1.5c-7.8-8.9-20-14.9-31.7-15.7-19.6-1.3-37.3,8.7-46.3,26.1-8.8,17.1-6.7,36.9,5.5,51.8,8.9,10.9,22.1,17.3,36.1,17.6h1c13.7,0,26.5-5.7,35.4-15.7l1.3-1.5-9.6-10.2-1.5,1.8h0v.3Z" fill="#db6647"></path>
+          <path d="M-692.9,4301.9h-13.8v86.1h13.8v-86.1Z" fill="#695d3d"></path>
+          <path d="M-977.5,4361.9c-4.7,8.5-13,14.5-22.9,16.3-10.3,1.9-20.6-.9-28.5-7.5-8.5-7.2-12.7-17.8-11.6-28.9,1.1-11.2,7.6-21.2,17.3-26.7,7.6-4.3,16.9-5.3,25.7-2.8,8.7,2.5,15.8,8,20,15.6l1,1.9,11.8-6.7-.9-1.8c-6.4-13.2-21.8-23.1-37.4-24.1-19.6-1.3-37.3,8.7-46.3,26.1-8.8,17.1-6.7,36.9,5.5,51.8,9.1,11.2,22.8,17.6,37.2,17.6s2.7,0,4.1-.2c15.9-1.3,29.4-10,37.2-23.7l1.1-1.9-12.1-6.9-1,1.9h-.2Z" fill="#db6647"></path>
+          <path d="M-963.6,4338h-69.5v13.8h69.5v-13.8Z" fill="#ca76e7"></path>
+          <path d="M-505.1,4361.9c-4.7,8.5-13,14.5-22.8,16.3-10.3,1.9-20.7-.9-28.5-7.5-8.5-7.2-12.7-17.8-11.6-28.9,1.1-11.2,7.6-21.2,17.3-26.7,7.6-4.3,16.9-5.3,25.7-2.8,8.7,2.5,15.8,8,20,15.6l1,1.9,11.8-6.7-.9-1.8c-6.4-13.2-21.8-23.1-37.4-24.1-19.6-1.3-37.3,8.7-46.3,26.1-8.8,17.1-6.7,36.9,5.5,51.8,9.2,11.2,22.8,17.6,37.2,17.6s2.7,0,4.1-.2c15.8-1.3,29.4-10,37.2-23.7l1.1-1.9-12.1-6.9-1,1.9h-.3Z" fill="#db6647"></path>
+          <path d="M-491.2,4338h-69.5v13.8h69.5v-13.8Z" fill="#ca76e7"></path>
+          <path d="M-651,4262.2h-13.8v126.9h13.8v-126.9Z" fill="#db6647"></path>
+          <path d="M-605,4298.7l-44.2,44.1,9.9,9.9,44.2-44.1s-9.9-9.9-9.9-9.9Z" fill="#ca76e7"></path>
+          <path d="M-636.5,4355.3l34.9,34.8,9.9-9.9-34.9-34.8s-9.9,9.9-9.9,9.9Z" fill="#ca76e7"></path>
+          <path d="M-457.3,4303.2h-13.8v86.1h13.8v-86.1Z" fill="#ca76e7"></path>
+          <path d="M-410,4303.2l-44.6,33.3,8.4,11.3,44.6-33.2-8.4-11.3h0Z" fill="#695d3d"></path>
+        </g>
+      </svg>
+    </a>
+    <nav class="nav-desktop" aria-label="ניווט עליון">
+      <ul class="nav-links">
+        <li><a href="#about">מי אני</a></li>
+        <li><a href="#results">תוצאות</a></li>
+        <li><a href="#method">השיטה</a></li>
+        <li><a href="#contact">צור קשר</a></li>
+      </ul>
+    </nav>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="החלפת ערכת צבעים" aria-pressed="true">
+      <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2"></circle>
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M19.4 4.6l-2.1 2.1M6.7 17.3l-2.1 2.1"></path>
+      </svg>
+      <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20.5 14.6A8 8 0 1 1 9.4 3.5a6.3 6.3 0 0 0 11.1 11.1Z"></path>
+      </svg>
+    </button>
+    <a href="#contact" class="btn">דברו איתי<span class="ar" aria-hidden="true"></span></a>
+    <button id="navToggle" class="nav-toggle" type="button" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="mobileNav">
+      <span class="nav-toggle-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+  </div>
+  <nav id="mobileNav" class="mobile-nav" aria-label="ניווט ראשי">
+    <ul>
+      <li><a href="#about">מי אני</a></li>
+      <li><a href="#results">תוצאות</a></li>
+      <li><a href="#method">השיטה</a></li>
+      <li><a href="#contact">צור קשר</a></li>
+    </ul>
+    <a href="#contact" class="btn">דברו איתי<span class="ar" aria-hidden="true"></span></a>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="fx" aria-hidden="true">
+    <span class="fl fl-i" data-r="18" style="--c:var(--orange);--r:18deg;top:14%;left:8%"></span>
+    <span class="fl fl-i" data-r="-26" style="--c:var(--purple);--r:-26deg;top:24%;left:20%"></span>
+    <span class="fl fl-i" data-r="44" style="--c:var(--olive);--r:44deg;top:62%;left:6%"></span>
+    <span class="fl fl-i" data-r="-14" style="--c:var(--orange);--r:-14deg;top:78%;left:18%"></span>
+  </div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">בני חליף · Placemaker</p>
+      <h1>
+        <span class="l1">בעלי מרכזים מסחריים,</span>
+        <span class="accent">יש לי משהו לחדש לכם.</span>
+      </h1>
+      <p class="lead">מרכז עם תפוסה מלאה ומתחם משופץ הוא לא מתכון בטוח להצלחה. ניהול שמייצר ערך - זה כן.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn">רוצים השבחה אמיתית? דברו איתי<span class="ar" aria-hidden="true"></span></a>
+        <a href="#about" class="btn-text">איך זה עובד<span class="ar" aria-hidden="true"></span></a>
+      </div>
+    </div>
+
+    <!-- the brand builds itself from its strokes -->
+    <div class="brand-build reveal">
+      <div class="assembly" id="assembly" aria-hidden="true">
+        <svg class="assembly-logo" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="-1445.60 4238.40 1064.00 174.30">
+          <g>
+            <path d="M-1081.1,4361.9c-4.7,8.5-13,14.5-22.9,16.3-10.3,1.9-20.6-.9-28.5-7.5-8.5-7.2-12.7-17.8-11.6-28.9,1.1-11.2,7.5-21.2,17.3-26.7,7.6-4.3,17-5.3,25.7-2.8s15.8,8,20,15.6l1,1.9,11.8-6.7-.9-1.8c-6.4-13.2-21.8-23.1-37.4-24.1-19.6-1.3-37.3,8.7-46.3,26.1-8.8,17.1-6.7,36.9,5.5,51.8,9.1,11.2,22.8,17.6,37.2,17.6s2.7,0,4.1-.2c15.9-1.3,29.4-10,37.2-23.7l1.1-1.9-12.1-6.9-1,1.9h-.2Z" fill="#695d3d"></path>
+            <path d="M-1293,4262.8h-13.9v126.9h13.9v-126.9Z" fill="#ca76e7"></path>
+            <path d="M-927.1,4262h-13.9v126.9h13.9v-126.9Z" fill="#ca76e7"></path>
+            <path d="M-810.1,4262h-13.8v126.9h13.8v-126.9Z" fill="#db6647"></path>
+            <path d="M-875.6,4377.4l-37-117.3-13.2,4.2,39.7,125.9,10.5-3.3,10.5,3.3,39-123.8.7-2-13.2-4.2-37,117.3h0Z" fill="#695d3d"></path>
+            <path d="M-1360.4,4258.4h-45.3v13.9h47c2.2,0,8.8,3.3,11.2,5.3,9.3,7.6,9.7,18.4,7,26-3.5,9.8-12.3,16.1-22.4,16.2h-42.9v13.5h47c8.6,0,20.5-7.5,25.7-14.3,8.7-11.1,10.4-25.4,4.6-38.4s-17.7-21.3-32-22.2h.1Z" fill="#695d3d"></path>
+            <path d="M-1411.7,4265.8h-13.9v123.9h13.9v-123.9Z" fill="#db6647"></path>
+            <path d="M-1201.2,4367.1c-5.6,6.7-13.7,10.8-22.7,11.5-9.2.8-18.1-2.1-25.1-8-8.5-7.2-12.7-17.8-11.6-28.9,1.1-11.2,7.6-21.2,17.3-26.7,13.6-7.6,31.5-4.5,41.8,7.3l1.5,1.7,9.9-9.9-1.3-1.5c-7.8-8.9-19.9-14.9-31.7-15.7-19.6-1.3-37.3,8.7-46.3,26.1-8.8,17.1-6.7,36.9,5.5,51.8,8.9,10.9,22.1,17.3,36.1,17.6h1c13.7,0,26.5-5.7,35.4-15.7l1.3-1.5-9.6-10.2-1.6,1.8h0v.3Z" fill="#db6647"></path>
+            <path d="M-1175,4301.9h-13.9v86.1h13.9v-86.1Z" fill="#ca76e7"></path>
+            <path d="M-719.1,4367.1c-5.6,6.7-13.7,10.8-22.7,11.5-9.2.8-18.1-2.1-25.1-8-8.5-7.2-12.7-17.8-11.6-28.9,1.1-11.2,7.6-21.2,17.3-26.7,13.6-7.7,31.5-4.5,41.8,7.3l1.5,1.7,9.8-9.9-1.3-1.5c-7.8-8.9-20-14.9-31.7-15.7-19.6-1.3-37.3,8.7-46.3,26.1-8.8,17.1-6.7,36.9,5.5,51.8,8.9,10.9,22.1,17.3,36.1,17.6h1c13.7,0,26.5-5.7,35.4-15.7l1.3-1.5-9.6-10.2-1.5,1.8h0v.3Z" fill="#db6647"></path>
+            <path d="M-692.9,4301.9h-13.8v86.1h13.8v-86.1Z" fill="#695d3d"></path>
+            <path d="M-977.5,4361.9c-4.7,8.5-13,14.5-22.9,16.3-10.3,1.9-20.6-.9-28.5-7.5-8.5-7.2-12.7-17.8-11.6-28.9,1.1-11.2,7.6-21.2,17.3-26.7,7.6-4.3,16.9-5.3,25.7-2.8,8.7,2.5,15.8,8,20,15.6l1,1.9,11.8-6.7-.9-1.8c-6.4-13.2-21.8-23.1-37.4-24.1-19.6-1.3-37.3,8.7-46.3,26.1-8.8,17.1-6.7,36.9,5.5,51.8,9.1,11.2,22.8,17.6,37.2,17.6s2.7,0,4.1-.2c15.9-1.3,29.4-10,37.2-23.7l1.1-1.9-12.1-6.9-1,1.9h-.2Z" fill="#db6647"></path>
+            <path d="M-963.6,4338h-69.5v13.8h69.5v-13.8Z" fill="#ca76e7"></path>
+            <path d="M-505.1,4361.9c-4.7,8.5-13,14.5-22.8,16.3-10.3,1.9-20.7-.9-28.5-7.5-8.5-7.2-12.7-17.8-11.6-28.9,1.1-11.2,7.6-21.2,17.3-26.7,7.6-4.3,16.9-5.3,25.7-2.8,8.7,2.5,15.8,8,20,15.6l1,1.9,11.8-6.7-.9-1.8c-6.4-13.2-21.8-23.1-37.4-24.1-19.6-1.3-37.3,8.7-46.3,26.1-8.8,17.1-6.7,36.9,5.5,51.8,9.2,11.2,22.8,17.6,37.2,17.6s2.7,0,4.1-.2c15.8-1.3,29.4-10,37.2-23.7l1.1-1.9-12.1-6.9-1,1.9h-.3Z" fill="#db6647"></path>
+            <path d="M-491.2,4338h-69.5v13.8h69.5v-13.8Z" fill="#ca76e7"></path>
+            <path d="M-651,4262.2h-13.8v126.9h13.8v-126.9Z" fill="#db6647"></path>
+            <path d="M-605,4298.7l-44.2,44.1,9.9,9.9,44.2-44.1s-9.9-9.9-9.9-9.9Z" fill="#ca76e7"></path>
+            <path d="M-636.5,4355.3l34.9,34.8,9.9-9.9-34.9-34.8s-9.9,9.9-9.9,9.9Z" fill="#ca76e7"></path>
+            <path d="M-457.3,4303.2h-13.8v86.1h13.8v-86.1Z" fill="#ca76e7"></path>
+            <path d="M-410,4303.2l-44.6,33.3,8.4,11.3,44.6-33.2-8.4-11.3h0Z" fill="#695d3d"></path>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- stats -->
+    <div class="hero-stats reveal">
+      <p class="tag" style="--c:var(--orange)">אני מביא איתי לשטח</p>
+      <div class="stats-grid">
+        <div class="stat"><span class="s-stick" style="--c:var(--orange)"></span><div class="s-num">27</div><div class="s-lab">שנות ניסיון בליבת המסחר</div></div>
+        <div class="stat"><span class="s-stick" style="--c:var(--purple)"></span><div class="s-num">289,000</div><div class="s-lab">מ״ר של השבחה ב־30 מרכזי מסחר</div></div>
+        <div class="stat"><span class="s-stick" style="--c:var(--olive)"></span><div class="s-num">30</div><div class="s-lab">מרכזים - כולל כאלה שהוגדרו "קשים"</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section problem reveal">
+  <div class="fx" aria-hidden="true">
+    <span class="fl fl-i" data-r="-20" style="--c:var(--orange);--r:-20deg;top:18%;left:46%"></span>
+    <span class="fl fl-i" data-r="40" style="--c:var(--olive);--r:40deg;top:80%;left:30%"></span>
+  </div>
+  <div class="wrap">
+    <div class="problem-grid">
+      <div class="prob-copy">
+        <span class="tag" style="--c:var(--purple)">הבעיה האמיתית</span>
+        <h2>
+          מרכזים מסחריים לא נכשלים בגלל <span class="x">לוקיישן.</span> הם נכשלים בגלל תפיסה שגויה בניהול הנכס.
+        </h2>
+        <p class="sub">אנחנו יודעים איך להפוך מרכזים למנועי ערך אמיתי - עם ניהול שמייצר ערך, וניהול שמקצר את הזמן להשבחה.</p>
+        <div class="rule"><i></i><i></i><i></i></div>
+      </div>
+      <div class="problem-art">
+        <svg id="probIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 463.7 555.1" aria-hidden="true">
+          <path d="M45.4,217.8H0v337.3h45.4V217.8Z" fill="#ca76e7"></path>
+          <path d="M463.7,217.8h-45.4v337.3h45.4V217.8Z" fill="#ca76e7"></path>
+          <path d="M232.5,32.2L200.4.1,13.7,186.8l32.1,32.1L232.5,32.2Z" fill="#695d3d"></path>
+          <path d="M264.8,0l-32.1,32.1,186.8,186.8,32.1-32.1L264.9,0h-.1Z" fill="#695d3d"></path>
+          <path d="M401.4,555.1v-40.8H60.8v40.8h340.6Z" fill="#db6647"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about reveal" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-copy">
+        <span class="tag" style="--c:var(--orange)">מי אני</span>
+        <p class="name">אני <b>בני חליף</b>, Placemaker</p>
+        <p class="body">אני לא רק מנהל מרכזים - אני מגשים את החזון המסחרי שלכם ומייצר ערך מתמשך שמוביל לתשואה אמיתית.</p>
+        <p class="body">פתרונות מותאמים לכל סוג לקוח - יזם פרטי, קבוצת נדל״ן או חברה ציבורית.</p>
+        <div class="rule"><i></i><i></i><i></i></div>
+      </div>
+      <div class="goal">
+        <h3>המטרה</h3>
+        <ul class="goal-list">
+          <li>מקסום <abbr lang="en" title="Net Operating Income — הכנסה תפעולית נטו">NOI</abbr></li>
+          <li>עליית שווי הנכס</li>
+          <li>יציבות ארוכת טווח</li>
+        </ul>
+        <div class="build" aria-hidden="true">
+          <i style="--h:40%;--c:var(--olive)"></i>
+          <i style="--h:62%;--c:var(--purple)"></i>
+          <i style="--h:82%;--c:var(--orange)"></i>
+          <i style="--h:100%;--c:var(--orange)"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="section aud reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag" style="--c:var(--olive)">פתרונות מותאמים</span>
+      <h2>לכל סוג לקוח</h2>
+    </div>
+    <div class="aud-grid">
+      <div class="aud-card" style="--c:var(--orange)">
+        <svg class="aud-ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="-20.00 -20.00 503.70 595.10">
+          <g>
+            <path d="M45.4,217.8H0v337.3h45.4V217.8Z" fill="#ca76e7"></path>
+            <path d="M463.7,217.8h-45.4v337.3h45.4V217.8Z" fill="#ca76e7"></path>
+            <path d="M232.5,32.2L200.4.1,13.7,186.8l32.1,32.1L232.5,32.2Z" fill="#695d3d"></path>
+            <path d="M264.8,0l-32.1,32.1,186.8,186.8,32.1-32.1L264.9,0h-.1Z" fill="#695d3d"></path>
+            <path d="M401.4,555.1v-40.8H60.8v40.8h340.6Z" fill="#db6647"></path>
+          </g>
+        </svg>
+        <h3>יזם פרטי</h3><p>ליווי אישי וצמוד להשאת ערך הנכס.</p>
+      </div>
+      <div class="aud-card" style="--c:var(--purple)">
+        <svg class="aud-ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="-2304.70 -59.80 505.80 674.70">
+          <g>
+            <path d="M-2238.1,155.3h-46.6v439.6h46.6V155.3Z" fill="#ca76e7"></path>
+            <path d="M-1818.9,155.3h-46.6v439.6h46.6V155.3Z" fill="#ca76e7"></path>
+            <path d="M-1882.9,594.9v-40.8h-340.6v40.8h340.6Z" fill="#ca76e7"></path>
+            <path d="M-1882.9,201.9v-46.6h-337.7v46.6h337.7Z" fill="#ca76e7"></path>
+            <path d="M-2002.9,154.5l45-12.1-48.8-182.2-45,12.1,48.8,182.2h0Z" fill="#695d3d"></path>
+            <path d="M-2142,142.5l45,12.1,48.8-182.2-45-12.1-48.8,182.2Z" fill="#695d3d"></path>
+          </g>
+        </svg>
+        <h3>קבוצת נדל״ן</h3><p>אסטרטגיה אחידה על פני תיק נכסים.</p>
+      </div>
+      <div class="aud-card" style="--c:var(--olive)">
+        <svg class="aud-ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="-1066.60 -33.40 301.60 618.60">
+          <g>
+            <path d="M-819.8,193.5c-16.5,19.4-40.2,31.3-66.9,33.5-27.1,2.3-53.4-6-73.8-23.1-24.9-21-37.4-51.5-34.2-83.8,3.2-32.4,22.2-61.3,51-77.3,39.9-22.2,92.9-13.1,123.2,21.1l4.5,5,29-28.7-3.9-4.4c-23-25.7-58.8-43.1-93.4-45.4-57.7-3.8-109.9,25.2-136.4,75.7-25.9,49.5-19.8,107.1,16.1,150.4,26.2,31.6,65,50.3,106.4,51.1h3.1c40.2,0,78.1-16.5,104.4-45.6l3.8-4.3-28.3-29.6-4.6,5.4h0Z" fill="#ca76e7"></path>
+            <path d="M-1038.5,411.5v153.6h46.9v-159.3c0-7.4,11.1-29.7,18-38.1,25.9-31.5,62.5-33,88.1-23.8,33.1,11.8,54.6,41.5,54.8,75.8v145.5h45.7v-159.3c0-29.1-25.5-69.3-48.4-87.2-37.6-29.4-86.2-35.2-130-15.5-44.1,19.8-72.2,60.1-75.2,108.4h0Z" fill="#db6647"></path>
+          </g>
+        </svg>
+        <h3>חברה ציבורית</h3><p>ניהול שקוף, ממוקד תשואה ויציבות.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="section results reveal" id="results">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag" style="--c:var(--orange)">תוצאות מוכחות</span>
+      <h2>מה שקורה בפועל</h2>
+    </div>
+    <div class="res-list">
+      <div class="res-row" style="--c:var(--orange)">
+        <span class="r-stick"></span>
+        <svg class="res-ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="2289.70 2081.30 385.50 276.50">
+          <g>
+            <path d="M2419.4,2337.8v-40.8h-109.7v40.8h109.7Z" fill="#db6647"></path>
+            <path d="M2419.4,2288.8v-40.8h-109.7v40.8h109.7Z" fill="#db6647"></path>
+            <path d="M2655.2,2337.8v-40.8h-109.7v40.8h109.7Z" fill="#ca76e7"></path>
+            <path d="M2655.2,2288.8v-40.8h-109.7v40.8h109.7Z" fill="#ca76e7"></path>
+            <path d="M2537.3,2337.8v-40.8h-109.7v40.8h109.7Z" fill="#695d3d"></path>
+            <path d="M2537.3,2288.8v-40.8h-109.7v40.8h109.7Z" fill="#695d3d"></path>
+            <path d="M2537.3,2239.9v-40.8h-109.7v40.8h109.7Z" fill="#695d3d"></path>
+            <path d="M2655.2,2239.9v-40.8h-109.7v40.8h109.7Z" fill="#ca76e7"></path>
+            <path d="M2655.2,2191v-40.8h-109.7v40.8h109.7Z" fill="#ca76e7"></path>
+            <path d="M2655.2,2142.1v-40.8h-109.7v40.8h109.7Z" fill="#ca76e7"></path>
+          </g>
+        </svg>
+        <div class="r-main"><h3>עליית תפוסה משמעותית</h3><p>תמהיל מדויק שמביא ביקוש אמיתי.</p></div>
+      </div>
+      <div class="res-row" style="--c:var(--purple)">
+        <span class="r-stick"></span>
+        <svg class="res-ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="-2281.10 2034.10 458.70 370.90">
+          <g>
+            <path d="M-1905,2177.6l39.5,10.1,23.1-89.8-39.5-10.1-23.1,89.8Z" fill="#695d3d"></path>
+            <path d="M-1983.2,2108.1l23.7,33.1,75.4-54-23.7-33.1-75.4,54Z" fill="#695d3d"></path>
+            <path d="M-2261.1,2346.2l12.6,38.8,126.4-41.1-12.6-38.8-126.4,41.1Z" fill="#695d3d"></path>
+            <path d="M-2133.2,2305l22.2,34.2,111.5-72.4-22.2-34.2-111.5,72.4Z" fill="#ca76e7"></path>
+            <path d="M-2020.9,2231.7l31.2,26.2,85.4-101.8-31.2-26.2-85.4,101.8h0Z" fill="#db6647"></path>
+          </g>
+        </svg>
+        <div class="r-main"><h3>עליית פדיונות ורווחיות</h3><p>יותר הכנסות, פחות הפסדים.</p></div>
+      </div>
+      <div class="res-row" style="--c:var(--olive)">
+        <span class="r-stick"></span>
+        <svg class="res-ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="14.30 2086.90 435.20 269.00">
+          <g>
+            <path d="M204.9,2267c-14.9,14.9-14.9,39.1,0,54s39.1,14.9,54,0,14.9-39.1,0-54" fill="none" stroke="#ca76e7" stroke-miterlimit="10" stroke-width="40"></path>
+            <path d="M429.5,2106.9v40.8h-66.5v-40.8h66.5Z" fill="#695d3d"></path>
+            <path d="M429.5,2157.6v40.8h-66.5v-40.8h66.5Z" fill="#695d3d"></path>
+            <path d="M100.8,2106.9v40.8H34.3v-40.8h66.5Z" fill="#695d3d"></path>
+            <path d="M100.8,2157.6v40.8H34.3v-40.8h66.5Z" fill="#695d3d"></path>
+            <path d="M429.5,2249v-40.8H34.3v40.8h395.2Z" fill="#db6647"></path>
+          </g>
+        </svg>
+        <div class="r-main"><h3>יציבות פיננסית ושיפור שווי</h3><p>בסיס איתן לטווח הארוך.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="section method reveal" id="method">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag" style="--c:var(--purple)">אני עושה את זה עם</span>
+      <h2>אסטרטגיה, לא תחזוקה</h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="topbar"><i></i><i></i><i></i></div>
+        <svg class="svc-ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="1179.70 2037.00 362.90 363.00">
+          <g>
+            <path d="M1428.3,2265.7c0,63.1-51.2,114.3-114.3,114.3s-114.3-51.2-114.3-114.3,51.2-114.3,114.3-114.3" fill="none" stroke="#db6647" stroke-miterlimit="10" stroke-width="40"></path>
+            <g>
+              <path d="M1333.9,2174.6c39.3,0,71.2,31.9,71.2,71.2" fill="none" stroke="#695d3d" stroke-miterlimit="10" stroke-width="40"></path>
+              <path d="M1522.6,2174.6c-39.3,0-71.2,31.9-71.2,71.2" fill="none" stroke="#ca76e7" stroke-miterlimit="10" stroke-width="40"></path>
+              <path d="M1333.9,2128.2c39.3,0,71.2-31.9,71.2-71.2" fill="none" stroke="#ca76e7" stroke-miterlimit="10" stroke-width="40"></path>
+              <path d="M1522.6,2128.2c-39.3,0-71.2-31.9-71.2-71.2" fill="none" stroke="#695d3d" stroke-miterlimit="10" stroke-width="40"></path>
+            </g>
+          </g>
+        </svg>
+        <h3>זהות ומטרה ברורה</h3><p>הגדרת זהות ומטרה ברורה לכל מרכז.</p>
+      </div>
+      <div class="svc">
+        <div class="topbar"><i></i><i></i><i></i></div>
+        <svg class="svc-ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="3418.70 1987.10 408.60 455.20">
+          <g>
+            <path d="M3807.3,2007.1h-41.4v415.2h41.4v-415.2Z" fill="#695d3d"></path>
+            <path d="M3480.1,2007.1h-41.4v415.2h41.4v-415.2Z" fill="#695d3d"></path>
+            <path d="M3750.5,2048.5v-41.4h-256.3v41.4h256.3Z" fill="#695d3d"></path>
+            <path d="M3750.5,2422.3v-41.4h-256.3v41.4h256.3Z" fill="#695d3d"></path>
+            <g>
+              <rect x="3692.2" y="2297.7" width="41.5" height="41.5" fill="#db6647"></rect>
+              <rect x="3512.4" y="2297.7" width="165" height="41.5" fill="#ca76e7"></rect>
+            </g>
+            <g>
+              <rect x="3692.2" y="2228.4" width="41.5" height="41.5" fill="#db6647"></rect>
+              <rect x="3512.4" y="2228.4" width="165" height="41.5" fill="#ca76e7"></rect>
+            </g>
+            <g>
+              <rect x="3692.2" y="2159.2" width="41.5" height="41.5" fill="#db6647"></rect>
+              <rect x="3512.4" y="2159.2" width="165" height="41.5" fill="#ca76e7"></rect>
+            </g>
+            <g>
+              <rect x="3692.2" y="2090" width="41.5" height="41.5" fill="#db6647"></rect>
+              <rect x="3512.4" y="2090" width="165" height="41.5" fill="#ca76e7"></rect>
+            </g>
+          </g>
+        </svg>
+        <h3>תמהיל שוכרים</h3><p>תמהיל שוכרים מותאם לקונספט.</p>
+      </div>
+      <div class="svc">
+        <div class="topbar"><i></i><i></i><i></i></div>
+        <svg class="svc-ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="-1139.80 1936.40 456.00 511.00">
+          <g>
+            <path d="M-932.1,2199.2h40.8v-132.9h-40.8v132.9h0Z" fill="#695d3d"></path>
+            <path d="M-891.4,2199.2v40.8h132.9v-40.8h-132.9Z" fill="#695d3d"></path>
+            <path d="M-856.9,1997.2v-40.8h-109.7v40.8h109.7Z" fill="#db6647"></path>
+            <path d="M-911.8,2011.6c-114.8,0-208,93.1-208,207.9s93.1,207.9,208,207.9,208-93.1,208-207.9-93.1-207.9-208-207.9ZM-911.8,2387.2c-92.6,0-167.6-75-167.6-167.6s75-167.6,167.6-167.6,167.6,75,167.6,167.6-75,167.6-167.6,167.6Z" fill="#ca76e7"></path>
+          </g>
+        </svg>
+        <h3>הובלה אסטרטגית</h3><p>ניהול והובלה אסטרטגית מתמשכת.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUATION -->
+<section class="eq reveal">
+  <div class="fx" aria-hidden="true">
+    <span class="fl fl-i" data-r="20" style="--c:var(--orange);--r:20deg;top:18%;left:10%"></span>
+    <span class="fl fl-i" data-r="-34" style="--c:var(--purple);--r:-34deg;top:26%;left:82%"></span>
+    <span class="fl fl-i" data-r="48" style="--c:var(--olive);--r:48deg;top:72%;left:14%"></span>
+    <span class="fl fl-i" data-r="-20" style="--c:var(--orange);--r:-20deg;top:78%;left:84%"></span>
+  </div>
+  <div class="wrap">
+    <div class="strip" aria-hidden="true"><i></i><i></i><i></i></div>
+    <p class="kick">מרכז עם</p>
+    <div class="eq-flow">
+      <span class="ew e1">זהות</span>
+      <i class="ec" aria-hidden="true"></i>
+      <span class="ew e2">ביקוש</span>
+      <i class="ec" aria-hidden="true"></i>
+      <span class="ew e3">ערך</span>
+    </div>
+    <div class="eq-eq" aria-hidden="true"><i></i><i></i></div>
+    <p class="eq-claim"><span class="neg">לא תחזוקה. לא תגובה לבעיות.</span>ניהול אמיתי הוא תוצאה של <em>אסטרטגיה אמיתית</em>.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact reveal" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <span class="tag" style="--c:var(--olive)">בקיצור</span>
+        <h2>רוצים לראות איך המרכז שלכם יכול לעבוד בשבילכם - לא אתם בשבילו?</h2>
+        <div class="tagbars">
+          <span>השבחה אמיתית</span>
+          <span>אסטרטגיה חכמה</span>
+          <span>יציבות ארוכה</span>
+          <span>יותר הכנסות</span>
+          <span>פחות הפסדים</span>
+        </div>
+        <!-- ===== DIRECT CONTACT — replace phone / WhatsApp / email below =====
+             tel: international format. wa.me: digits only, no +, e.g. 972501234567 -->
+        <div class="contact-direct">
+          <p class="cd-lead">מעדיפים לדבר ישירות?</p>
+          <a class="cd-item" style="--c:var(--orange)" href="tel:+972500000000"><span class="cd-stick" aria-hidden="true"></span><span class="cd-txt"><b>טלפון</b> · 050-000-0000</span></a>
+          <a class="cd-item" style="--c:var(--purple)" href="https://wa.me/972500000000" target="_blank" rel="noopener"><span class="cd-stick" aria-hidden="true"></span><span class="cd-txt"><b>WhatsApp</b> · שליחת הודעה מהירה</span></a>
+          <a class="cd-item" style="--c:var(--olive)" href="mailto:REPLACE@EMAIL.co.il"><span class="cd-stick" aria-hidden="true"></span><span class="cd-txt"><b>אימייל</b> · REPLACE@EMAIL.co.il</span></a>
+        </div>
+      </div>
+      <form id="leadForm" novalidate action="https://api.web3forms.com/submit" method="POST">
+        <!-- ===== LEADS DELIVERY: paste your free Web3Forms access key below =====
+             1. Go to https://web3forms.com  2. Enter the email where you want leads
+             3. Copy the access key they email you  4. Replace the value below.        -->
+        <input type="hidden" name="access_key" value="REPLACE_WITH_YOUR_WEB3FORMS_KEY">
+        <input type="hidden" name="subject" value="ליד חדש מהאתר · Placemaker">
+        <input type="hidden" name="from_name" value="Placemaker - דף נחיתה">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-head" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="form-fields">
+          <h3>השאירו פרטים ואחזור אליכם</h3>
+          <div class="field">
+            <label for="name">שם מלא</label>
+            <input id="name" name="name" type="text" autocomplete="name" required placeholder="השם שלכם" aria-describedby="nameErr">
+            <span class="field-error" id="nameErr" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="phone">טלפון</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="050-0000000" aria-describedby="phoneErr">
+            <span class="field-error" id="phoneErr" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="msg">פרטים על המרכז (אופציונלי)</label>
+            <textarea id="msg" name="msg" placeholder="כמה מילים על הנכס והמטרה"></textarea>
+          </div>
+          <button type="submit" class="btn">דברו איתי<span class="ar" aria-hidden="true"></span></button>
+          <p class="form-error" id="formError" role="alert">אופס, השליחה נכשלה. נסו שוב או חייגו אליי ישירות.</p>
+          <p class="form-privacy">הפרטים שלכם נשמרים אצלי בלבד, משמשים ליצירת קשר חוזר ולא מועברים לצד שלישי. <button type="button" class="link-btn" data-modal="privacyModal">מדיניות פרטיות</button></p>
+        </div>
+        <div class="form-thanks" id="thanks" role="status" tabindex="-1">
+          <div class="check" aria-hidden="true">✓</div>
+          <h3>תודה!</h3>
+          <p>קיבלתי את הפרטים ואחזור אליכם בהקדם.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap footer-row">
+    <svg class="logo-svg footer-logo" role="img" aria-label="Placemaker" xmlns="http://www.w3.org/2000/svg" viewBox="-1445.60 4238.40 1064.00 174.30">
+      <g>
+        <path d="M-1081.1,4361.9c-4.7,8.5-13,14.5-22.9,16.3-10.3,1.9-20.6-.9-28.5-7.5-8.5-7.2-12.7-17.8-11.6-28.9,1.1-11.2,7.5-21.2,17.3-26.7,7.6-4.3,17-5.3,25.7-2.8s15.8,8,20,15.6l1,1.9,11.8-6.7-.9-1.8c-6.4-13.2-21.8-23.1-37.4-24.1-19.6-1.3-37.3,8.7-46.3,26.1-8.8,17.1-6.7,36.9,5.5,51.8,9.1,11.2,22.8,17.6,37.2,17.6s2.7,0,4.1-.2c15.9-1.3,29.4-10,37.2-23.7l1.1-1.9-12.1-6.9-1,1.9h-.2Z" fill="#695d3d"></path>
+        <path d="M-1293,4262.8h-13.9v126.9h13.9v-126.9Z" fill="#ca76e7"></path>
+        <path d="M-927.1,4262h-13.9v126.9h13.9v-126.9Z" fill="#ca76e7"></path>
+        <path d="M-810.1,4262h-13.8v126.9h13.8v-126.9Z" fill="#db6647"></path>
+        <path d="M-875.6,4377.4l-37-117.3-13.2,4.2,39.7,125.9,10.5-3.3,10.5,3.3,39-123.8.7-2-13.2-4.2-37,117.3h0Z" fill="#695d3d"></path>
+        <path d="M-1360.4,4258.4h-45.3v13.9h47c2.2,0,8.8,3.3,11.2,5.3,9.3,7.6,9.7,18.4,7,26-3.5,9.8-12.3,16.1-22.4,16.2h-42.9v13.5h47c8.6,0,20.5-7.5,25.7-14.3,8.7-11.1,10.4-25.4,4.6-38.4s-17.7-21.3-32-22.2h.1Z" fill="#695d3d"></path>
+        <path d="M-1411.7,4265.8h-13.9v123.9h13.9v-123.9Z" fill="#db6647"></path>
+        <path d="M-1201.2,4367.1c-5.6,6.7-13.7,10.8-22.7,11.5-9.2.8-18.1-2.1-25.1-8-8.5-7.2-12.7-17.8-11.6-28.9,1.1-11.2,7.6-21.2,17.3-26.7,13.6-7.6,31.5-4.5,41.8,7.3l1.5,1.7,9.9-9.9-1.3-1.5c-7.8-8.9-19.9-14.9-31.7-15.7-19.6-1.3-37.3,8.7-46.3,26.1-8.8,17.1-6.7,36.9,5.5,51.8,8.9,10.9,22.1,17.3,36.1,17.6h1c13.7,0,26.5-5.7,35.4-15.7l1.3-1.5-9.6-10.2-1.6,1.8h0v.3Z" fill="#db6647"></path>
+        <path d="M-1175,4301.9h-13.9v86.1h13.9v-86.1Z" fill="#ca76e7"></path>
+        <path d="M-719.1,4367.1c-5.6,6.7-13.7,10.8-22.7,11.5-9.2.8-18.1-2.1-25.1-8-8.5-7.2-12.7-17.8-11.6-28.9,1.1-11.2,7.6-21.2,17.3-26.7,13.6-7.7,31.5-4.5,41.8,7.3l1.5,1.7,9.8-9.9-1.3-1.5c-7.8-8.9-20-14.9-31.7-15.7-19.6-1.3-37.3,8.7-46.3,26.1-8.8,17.1-6.7,36.9,5.5,51.8,8.9,10.9,22.1,17.3,36.1,17.6h1c13.7,0,26.5-5.7,35.4-15.7l1.3-1.5-9.6-10.2-1.5,1.8h0v.3Z" fill="#db6647"></path>
+        <path d="M-692.9,4301.9h-13.8v86.1h13.8v-86.1Z" fill="#695d3d"></path>
+        <path d="M-977.5,4361.9c-4.7,8.5-13,14.5-22.9,16.3-10.3,1.9-20.6-.9-28.5-7.5-8.5-7.2-12.7-17.8-11.6-28.9,1.1-11.2,7.6-21.2,17.3-26.7,7.6-4.3,16.9-5.3,25.7-2.8,8.7,2.5,15.8,8,20,15.6l1,1.9,11.8-6.7-.9-1.8c-6.4-13.2-21.8-23.1-37.4-24.1-19.6-1.3-37.3,8.7-46.3,26.1-8.8,17.1-6.7,36.9,5.5,51.8,9.1,11.2,22.8,17.6,37.2,17.6s2.7,0,4.1-.2c15.9-1.3,29.4-10,37.2-23.7l1.1-1.9-12.1-6.9-1,1.9h-.2Z" fill="#db6647"></path>
+        <path d="M-963.6,4338h-69.5v13.8h69.5v-13.8Z" fill="#ca76e7"></path>
+        <path d="M-505.1,4361.9c-4.7,8.5-13,14.5-22.8,16.3-10.3,1.9-20.7-.9-28.5-7.5-8.5-7.2-12.7-17.8-11.6-28.9,1.1-11.2,7.6-21.2,17.3-26.7,7.6-4.3,16.9-5.3,25.7-2.8,8.7,2.5,15.8,8,20,15.6l1,1.9,11.8-6.7-.9-1.8c-6.4-13.2-21.8-23.1-37.4-24.1-19.6-1.3-37.3,8.7-46.3,26.1-8.8,17.1-6.7,36.9,5.5,51.8,9.2,11.2,22.8,17.6,37.2,17.6s2.7,0,4.1-.2c15.8-1.3,29.4-10,37.2-23.7l1.1-1.9-12.1-6.9-1,1.9h-.3Z" fill="#db6647"></path>
+        <path d="M-491.2,4338h-69.5v13.8h69.5v-13.8Z" fill="#ca76e7"></path>
+        <path d="M-651,4262.2h-13.8v126.9h13.8v-126.9Z" fill="#db6647"></path>
+        <path d="M-605,4298.7l-44.2,44.1,9.9,9.9,44.2-44.1s-9.9-9.9-9.9-9.9Z" fill="#ca76e7"></path>
+        <path d="M-636.5,4355.3l34.9,34.8,9.9-9.9-34.9-34.8s-9.9,9.9-9.9,9.9Z" fill="#ca76e7"></path>
+        <path d="M-457.3,4303.2h-13.8v86.1h13.8v-86.1Z" fill="#ca76e7"></path>
+        <path d="M-410,4303.2l-44.6,33.3,8.4,11.3,44.6-33.2-8.4-11.3h0Z" fill="#695d3d"></path>
+      </g>
+    </svg>
+    <nav class="footer-links" aria-label="קישורי תחתית">
+      <a href="tel:+972500000000">050-000-0000</a>
+      <button type="button" class="link-btn" data-modal="a11yModal">הצהרת נגישות</button>
+      <button type="button" class="link-btn" data-modal="privacyModal">מדיניות פרטיות</button>
+    </nav>
+    <p class="credit">עוצב ופותח על ידי <a href="https://www.firmabrands.com/" target="_blank" rel="noopener">Firma Business Design</a></p>
+  </div>
+  <div class="wrap"><p class="footer-copy">© <span id="yr">2026</span> בני חליף · Placemaker. כל הזכויות שמורות.</p></div>
+</footer>
+
+<!-- accessibility marker — opens the accessibility statement (aisrael "mark the homepage" recommendation) -->
+<button type="button" class="a11y-fab" data-modal="a11yModal" aria-label="הצהרת נגישות ואפשרויות נגישות">
+  <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+    <circle cx="16" cy="7" r="3" fill="currentColor"></circle>
+    <path d="M16 11 V19 M16 19 L11.5 28 M16 19 L20.5 28 M7 13.5 H25" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg>
+</button>
+
+<!-- ===== ACCESSIBILITY STATEMENT (הצהרת נגישות) — fill the coordinator details + date ===== -->
+<div class="modal" id="a11yModal" role="dialog" aria-modal="true" aria-labelledby="a11yTitle" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-box">
+    <button class="modal-close" type="button" aria-label="סגירת החלון" data-close>&times;</button>
+    <h2 id="a11yTitle">הצהרת נגישות</h2>
+    <div class="modal-body">
+      <h3>מהו אתר נגיש</h3>
+      <p>אתר נגיש מאפשר לאנשים עם מוגבלות לגלוש ולהשתמש בשירותיו באופן עצמאי, נוח ושוויוני, לרבות באמצעות טכנולוגיות מסייעות כגון קוראי מסך והגדלת תצוגה.</p>
+      <h3>סטטוס הנגישות ורמת ההנגשה</h3>
+      <p>אתר זה הונגש בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ"ח-1998, ולתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג-2013, וכן בהתאם לתקן הישראלי ת"י 5568 ברמת AA, המבוסס על הנחיות WCAG 2.0/2.1 של ארגון W3C.</p>
+      <h3>הסדרי הנגישות באתר</h3>
+      <p>האתר תוכנן לתמוך, בין היתר, ב: ניווט מלא באמצעות מקלדת; מבנה כותרות וסימון סמנטי עבור קוראי מסך; טקסט חלופי לרכיבים גרפיים; יחסי ניגודיות תקינים בין טקסט לרקע; אפשרות מעבר בין מצב תצוגה כהה לבהיר; טפסים עם תוויות והודעות שגיאה ברורות; וכיבוד העדפת המשתמש להפחתת אנימציות (prefers-reduced-motion).</p>
+      <h3>תאימות לדפדפנים ולטכנולוגיות מסייעות</h3>
+      <p>האתר תוכנן לעבוד עם הדפדפנים הנפוצים (Chrome, Firefox, Safari, Edge) בגרסאותיהם העדכניות ועם קוראי מסך נפוצים (כגון NVDA ו-VoiceOver). מומלץ לגלוש בגרסה עדכנית. [עדכנו כאן את הדפדפנים והטכנולוגיות המסייעות שנבדקו בפועל ואת מועד הבדיקה.]</p>
+      <h3>דרכי התקשרות נגישות</h3>
+      <p>ניתן ליצור עמנו קשר בטלפון, בוואטסאפ ובדוא"ל, כמפורט מטה וכן באזור "צור קשר" שבאתר.</p>
+      <h3>הסדרי הנגישות של העסק</h3>
+      <p>[אם קיים מקום קבלת קהל פיזי — פרטו כאן את הסדרי הנגישות שלו: חניית נכים, כניסה נגישה, מעלית, שירותים נגישים וכד'. אם השירות ניתן מרחוק או במשרדי הלקוח בלבד — ציינו זאת במפורש.]</p>
+      <h3>החרגות, מגבלות והשעיה זמנית</h3>
+      <p>למרות מאמצינו להנגיש כל רכיב באתר, ייתכנו חלקים שטרם הונגשו במלואם או תכנים של צד שלישי שאינם בשליטתנו. במקרה של השבתה זמנית של הסדר נגישות לתקופה העולה על שבוע — תפורסם על כך הודעה. אנו ממשיכים לפעול לשיפור הנגישות באופן שוטף; אם נתקלתם ברכיב שאינו נגיש, נשמח שתעדכנו אותנו ונפעל לתקנו בהקדם.</p>
+      <h3>רכז/ת הנגישות ופנייה בנושא נגישות</h3>
+      <p>נתקלתם בקושי? נשמח לסייע ולתקן.<br>רכז/ת נגישות: <b>[שם הרכז/ת]</b><br>טלפון: <a href="tel:+972500000000">050-000-0000</a><br>דוא"ל: <a href="mailto:REPLACE@EMAIL.co.il">REPLACE@EMAIL.co.il</a><br>נשתדל להשיב לפניות בנושא נגישות בתוך [מספר] ימי עסקים.</p>
+      <p>הצהרת נגישות זו נכתבה ועודכנה לאחרונה בתאריך [עדכנו תאריך].</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PRIVACY (מדיניות פרטיות) — adjust wording to your actual practice ===== -->
+<div class="modal" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-box">
+    <button class="modal-close" type="button" aria-label="סגירת החלון" data-close>&times;</button>
+    <h2 id="privacyTitle">מדיניות פרטיות</h2>
+    <div class="modal-body">
+      <h3>איזה מידע נאסף</h3>
+      <p>בעת מילוי טופס יצירת הקשר נאספים השם ומספר הטלפון שתמסרו, וכן פרטים נוספים שתבחרו לשתף בשדה ההערות.</p>
+      <h3>השימוש במידע</h3>
+      <p>המידע משמש אך ורק ליצירת קשר חוזר ולמתן מענה לפנייתכם. איננו מוכרים, משכירים או משתפים את פרטיכם עם צד שלישי, למעט ספק שירות הטפסים המעביר אלינו את הפנייה.</p>
+      <h3>שמירה ומחיקה</h3>
+      <p>תוכלו לפנות אלינו בכל עת בבקשה לעיין בפרטים שמסרתם או למחוק אותם מרשומותינו.</p>
+      <h3>יצירת קשר בנושא פרטיות</h3>
+      <p>טלפון: <a href="tel:+972500000000">050-000-0000</a><br>אימייל: <a href="mailto:REPLACE@EMAIL.co.il">REPLACE@EMAIL.co.il</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---- theme toggle ----
+(function(){
+  var btn=document.getElementById('themeToggle'); if(!btn) return;
+  var root=document.documentElement;
+  function sync(){ btn.setAttribute('aria-pressed', root.getAttribute('data-theme')==='light'?'true':'false'); }
+  sync();
+  btn.addEventListener('click',function(){
+    var light=root.getAttribute('data-theme')==='light';
+    if(light){ root.removeAttribute('data-theme'); } else { root.setAttribute('data-theme','light'); }
+    try{ localStorage.setItem('pm-theme', light?'dark':'light'); }catch(e){}
+    sync();
+  });
+})();
+
+// ---- mobile nav ----
+(function(){
+  var t=document.getElementById('navToggle'), m=document.getElementById('mobileNav');
+  if(!t||!m) return;
+  function close(){ m.classList.remove('open'); t.setAttribute('aria-expanded','false'); }
+  function open(){ m.classList.add('open'); t.setAttribute('aria-expanded','true'); }
+  t.addEventListener('click',function(){ m.classList.contains('open')?close():open(); });
+  m.addEventListener('click',function(e){ if(e.target.closest('a')) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'||e.key==='Esc') close(); });
+  window.addEventListener('resize',function(){ if(window.innerWidth>980) close(); });
+})();
+
+// ---- scroll reveal ----
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.12});
+  els.forEach(function(e){io.observe(e);});
+})();
+
+// ---- header hairline on scroll ----
+(function(){
+  var h=document.getElementById('siteHeader');
+  var on=function(){h.classList.toggle('scrolled',window.scrollY>8);};
+  on();window.addEventListener('scroll',on,{passive:true});
+})();
+
+// ---- floating sticks orient toward the cursor, ease back when idle (pauses when settled / tab hidden) ----
+(function(){
+  var lines=[].slice.call(document.querySelectorAll('.fl-i'));
+  if(!lines.length) return;
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var active=false,mx=0,my=0,running=false;
+  var cur=lines.map(function(el){return parseFloat(el.getAttribute('data-r'))||0;});
+  function loop(){
+    var moving=false;
+    for(var i=0;i<lines.length;i++){
+      var el=lines[i], base=parseFloat(el.getAttribute('data-r'))||0, target=base;
+      if(active){ var r=el.getBoundingClientRect(); target=Math.atan2(my-(r.top+r.height/2),mx-(r.left+r.width/2))*180/Math.PI; }
+      var diff=((target-cur[i]+540)%360)-180;
+      if(Math.abs(diff)>0.15) moving=true;
+      cur[i]+=diff*0.1;
+      el.style.transform='rotate('+cur[i].toFixed(2)+'deg)';
+    }
+    if((active||moving) && !document.hidden){ requestAnimationFrame(loop); } else { running=false; }
+  }
+  function start(){ if(!running && !document.hidden){ running=true; requestAnimationFrame(loop); } }
+  window.addEventListener('pointermove',function(e){active=true;mx=e.clientX;my=e.clientY;start();},{passive:true});
+  document.addEventListener('mouseleave',function(){active=false;start();});
+  document.addEventListener('visibilitychange',function(){ if(!document.hidden) start(); });
+})();
+
+// ---- the wordmark assembles from its strokes; breaks apart on hover ----
+(function(){
+  var stage=document.getElementById('assembly'); if(!stage) return;
+  var paths=[].slice.call(stage.querySelectorAll('path'));
+  if(!paths.length) return;
+  var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce){ paths.forEach(function(p){p.style.opacity=1;p.style.transform='none';}); return; }
+  var MARG=8;
+  var B=paths.map(function(p){ var b; try{b=p.getBBox();}catch(e){b={x:0,y:0,width:10,height:10};}
+    var ang=(Math.random()*2-1)*20, r=ang*Math.PI/180, ca=Math.abs(Math.cos(r)), sa=Math.abs(Math.sin(r));
+    return {cx:b.x+b.width/2, cy:b.y+b.height/2,
+            hw:(b.width*ca+b.height*sa)/2, hh:(b.width*sa+b.height*ca)/2, ang:ang, ox:0, oy:0}; });
+  var minx=1e9,maxx=-1e9,miny=1e9,maxy=-1e9;
+  B.forEach(function(o){ if(o.cx<minx)minx=o.cx; if(o.cx>maxx)maxx=o.cx; if(o.cy<miny)miny=o.cy; if(o.cy>maxy)maxy=o.cy; });
+  var LCX=(minx+maxx)/2, LCY=(miny+maxy)/2;
+  B.forEach(function(o){ o.ox=(o.cx-LCX)*0.45; o.oy=(o.cy-LCY)*0.45; });
+  for(var it=0; it<260; it++){ var moved=false;
+    for(var a=0;a<B.length;a++){ for(var c=a+1;c<B.length;c++){
+      var A=B[a], D=B[c];
+      var dx=(D.cx+D.ox)-(A.cx+A.ox), dy=(D.cy+D.oy)-(A.cy+A.oy);
+      var px=(A.hw+D.hw+MARG)-Math.abs(dx), py=(A.hh+D.hh+MARG)-Math.abs(dy);
+      if(px>0 && py>0){ moved=true;
+        if(px<=py){ var s=(dx<0?-1:1)*px/2; A.ox-=s; D.ox+=s; }
+        else { var t=(dy<0?-1:1)*py/2; A.oy-=t; D.oy+=t; }
+      }
+    } }
+    if(!moved) break;
+  }
+  var scat=B.map(function(o){ return 'translate('+o.ox.toFixed(1)+'px,'+o.oy.toFixed(1)+'px) rotate('+o.ang.toFixed(1)+'deg)'; });
+  paths.forEach(function(p,i){ p.style.transitionDelay=(i*11)+'ms'; p.style.opacity='0'; p.style.transform=scat[i]; });
+  function together(){ paths.forEach(function(p){ p.style.opacity='1'; p.style.transform='none'; }); }
+  function apart(){ paths.forEach(function(p,i){ p.style.opacity='1'; p.style.transform=scat[i]; }); }
+  var built=false;
+  function firstBuild(){ if(built) return; built=true; together(); }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ firstBuild(); io.disconnect(); } }); },{threshold:.3});
+    io.observe(stage);
+  } else { firstBuild(); }
+  stage.addEventListener('mouseenter',function(){ if(built) apart(); });
+  stage.addEventListener('mouseleave',function(){ if(built) together(); });
+})();
+
+// ---- problem icon: rigid strokes fall into a settled pile on hover, rebuild on leave ----
+(function(){
+  var svg=document.getElementById('probIcon'); if(!svg) return;
+  var ps=[].slice.call(svg.querySelectorAll('path')); if(ps.length<5) return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var GEO=[{L:337.3,S:45.4,dA:90,cx:22.7,cy:386.45},{L:337.3,S:45.4,dA:90,cx:441,cy:386.45},
+           {L:264,S:45,dA:135,cx:122.5,cy:109.5},{L:264,S:45,dA:45,cx:340,cy:110},
+           {L:340.6,S:40.8,dA:0,cx:231.1,cy:534.7}];
+  var floor=555.1, MARG=6;
+  function rnd(a,b){return a+Math.random()*(b-a);}
+  function aabb(L,S,A){var r=A*Math.PI/180,ca=Math.abs(Math.cos(r)),sa=Math.abs(Math.sin(r));return {hw:(L*ca+S*sa)/2,hh:(L*sa+S*ca)/2};}
+  var R=GEO.map(function(g,i){var a=(i===4?rnd(-3,3):rnd(-6,6)),bb=aabb(g.L,g.S,a);
+    return {p:ps[i],g:g,a:a,hw:bb.hw,hh:bb.hh,cx:g.cx,cy:g.cy};});
+  function clampFloor(){for(var k=0;k<R.length;k++){var o=R[k];if(o.cy+o.hh>floor)o.cy=floor-o.hh;}}
+  function separate(){for(var a=0;a<R.length;a++)for(var c=a+1;c<R.length;c++){var A=R[a],D=R[c];
+    var dx=D.cx-A.cx,dy=D.cy-A.cy;if(Math.abs(dx)<0.01)dx=rnd(-0.5,0.5);
+    var ox=(A.hw+D.hw+MARG)-Math.abs(dx),oy=(A.hh+D.hh+MARG)-Math.abs(dy);
+    if(ox>0&&oy>0){if(ox<oy){var s=(dx<0?-1:1)*ox/2;A.cx-=s;D.cx+=s;}else{var t=(dy<0?-1:1)*oy/2;A.cy-=t;D.cy+=t;}}}}
+  for(var it=0;it<460;it++){for(var i=0;i<R.length;i++)R[i].cy+=1.2;clampFloor();for(var pp=0;pp<8;pp++){separate();clampFloor();}}
+  for(var e=0;e<160;e++){separate();clampFloor();}
+  var F=R.map(function(o){var ox=o.cx-o.g.cx,oy=o.cy-o.g.cy,d=o.a-o.g.dA;
+    while(d>180)d-=360;while(d<-180)d+=360;
+    return {p:o.p,t:'translate('+ox.toFixed(1)+'px,'+oy.toFixed(1)+'px) rotate('+d.toFixed(1)+'deg)',dur:(0.26+0.045*Math.sqrt(Math.abs(oy))).toFixed(2)};});
+  var state='idle';
+  function fall(){
+    if(state!=='idle') return; state='down';
+    F.forEach(function(f){ f.p.style.transition='transform '+f.dur+'s cubic-bezier(.5,0,.85,.45)'; });
+    requestAnimationFrame(function(){ F.forEach(function(f){ f.p.style.transform=f.t; }); });
+  }
+  function rebuild(){
+    if(state==='idle') return; state='idle';
+    F.forEach(function(f){ f.p.style.transition='transform .5s cubic-bezier(.2,.7,.2,1)'; });
+    requestAnimationFrame(function(){ F.forEach(function(f){ f.p.style.transform='none'; }); });
+  }
+  var host=svg.closest('.problem-art')||svg;
+  host.addEventListener('mouseenter',fall);
+  host.addEventListener('mouseleave',rebuild);
+})();
+
+// ---- every logo spreads apart on hover, regroups on leave ----
+(function(){
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  function spread(ps){
+    var MARG=8;
+    var B=ps.map(function(p){ var b; try{b=p.getBBox();}catch(e){b={x:0,y:0,width:10,height:10};}
+      var ang=(Math.random()*2-1)*20, r=ang*Math.PI/180, ca=Math.abs(Math.cos(r)), sa=Math.abs(Math.sin(r));
+      return {cx:b.x+b.width/2, cy:b.y+b.height/2, hw:(b.width*ca+b.height*sa)/2, hh:(b.width*sa+b.height*ca)/2, ang:ang, ox:0, oy:0}; });
+    var minx=1e9,maxx=-1e9,miny=1e9,maxy=-1e9;
+    B.forEach(function(o){ if(o.cx<minx)minx=o.cx; if(o.cx>maxx)maxx=o.cx; if(o.cy<miny)miny=o.cy; if(o.cy>maxy)maxy=o.cy; });
+    var LCX=(minx+maxx)/2, LCY=(miny+maxy)/2;
+    B.forEach(function(o){ o.ox=(o.cx-LCX)*0.45; o.oy=(o.cy-LCY)*0.45; });
+    for(var it=0; it<260; it++){ var moved=false;
+      for(var a=0;a<B.length;a++){ for(var c=a+1;c<B.length;c++){ var A=B[a],D=B[c];
+        var dx=(D.cx+D.ox)-(A.cx+A.ox), dy=(D.cy+D.oy)-(A.cy+A.oy);
+        var px=(A.hw+D.hw+MARG)-Math.abs(dx), py=(A.hh+D.hh+MARG)-Math.abs(dy);
+        if(px>0&&py>0){ moved=true; if(px<=py){ var s=(dx<0?-1:1)*px/2; A.ox-=s; D.ox+=s; } else { var t=(dy<0?-1:1)*py/2; A.oy-=t; D.oy+=t; } }
+      } }
+      if(!moved) break;
+    }
+    return B.map(function(o){ return 'translate('+o.ox.toFixed(1)+'px,'+o.oy.toFixed(1)+'px) rotate('+o.ang.toFixed(1)+'deg)'; });
+  }
+  [].forEach.call(document.querySelectorAll('.logo-svg'),function(svg){
+    var ps=[].slice.call(svg.querySelectorAll('path')); if(!ps.length) return;
+    var sc=spread(ps);
+    svg.addEventListener('mouseenter',function(){ps.forEach(function(p,i){p.style.transform=sc[i];});});
+    svg.addEventListener('mouseleave',function(){ps.forEach(function(p){p.style.transform='none';});});
+  });
+})();
+
+// ---- year ----
+(function(){var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear();})();
+
+// ---- modal dialogs (accessibility statement / privacy) ----
+(function(){
+  var lastFocus=null;
+  function openModal(id){var m=document.getElementById(id); if(!m) return;
+    lastFocus=document.activeElement; m.removeAttribute('hidden');
+    var c=m.querySelector('.modal-close'); if(c) c.focus();
+    document.addEventListener('keydown',onKey);}
+  function closeModal(m){if(!m) return; m.setAttribute('hidden','');
+    document.removeEventListener('keydown',onKey);
+    if(lastFocus&&lastFocus.focus) lastFocus.focus();}
+  function onKey(e){
+    var m=document.querySelector('.modal:not([hidden])'); if(!m) return;
+    if(e.key==='Escape'||e.key==='Esc'){closeModal(m); return;}
+    if(e.key==='Tab'){var f=m.querySelectorAll('a[href],button:not([disabled])'); if(!f.length) return;
+      var first=f[0], last=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}}
+  [].forEach.call(document.querySelectorAll('[data-modal]'),function(b){
+    b.addEventListener('click',function(){openModal(b.getAttribute('data-modal'));});});
+  [].forEach.call(document.querySelectorAll('[data-close]'),function(c){
+    c.addEventListener('click',function(){closeModal(c.closest('.modal'));});});
+})();
+
+// ---- lead form (Web3Forms — delivers leads from a static host like GitHub Pages) ----
+document.getElementById('leadForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var form=this;
+  var n=document.getElementById('name'),p=document.getElementById('phone');
+  function setErr(el,id,msg){var e=document.getElementById(id);
+    if(msg){el.classList.add('invalid');el.setAttribute('aria-invalid','true');if(e){e.textContent=msg;e.classList.add('show');}}
+    else{el.classList.remove('invalid');el.removeAttribute('aria-invalid');if(e){e.textContent='';e.classList.remove('show');}}}
+  var bad=null;
+  if(!n.value.trim()){setErr(n,'nameErr','נא למלא שם מלא');bad=bad||n;}else setErr(n,'nameErr','');
+  if(!p.value.trim()){setErr(p,'phoneErr','נא למלא מספר טלפון');bad=bad||p;}
+  else if(!/^[0-9+\-\s()]{7,}$/.test(p.value.trim())){setErr(p,'phoneErr','מספר טלפון לא תקין');bad=bad||p;}
+  else setErr(p,'phoneErr','');
+  if(bad){bad.focus();return;}
+  var btn=form.querySelector('button[type="submit"]');
+  var err=document.getElementById('formError');
+  var label=btn.innerHTML;
+  err.classList.remove('show');
+  btn.disabled=true; btn.textContent='שולח…';
+  fetch('https://api.web3forms.com/submit',{
+    method:'POST',
+    headers:{'Accept':'application/json'},
+    body:new FormData(form)
+  }).then(function(r){return r.json();}).then(function(data){
+    if(data.success){
+      form.classList.add('sent');
+      var th=document.getElementById('thanks'); th.classList.add('show'); if(th.focus) th.focus();
+    }else{
+      throw new Error(data.message||'failed');
+    }
+  }).catch(function(){
+    btn.disabled=false; btn.innerHTML=label;
+    err.classList.add('show');
+  });
+});
+</script>
+
+</body>
+</html>
