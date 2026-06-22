@@ -248,13 +248,20 @@ html:not([data-theme="light"]) .hero h1 .accent{filter:drop-shadow(0 2px 14px rg
   gap:clamp(26px,4.5vw,60px);align-items:end}
 .hero-top .hero-copy{max-width:100%;align-self:center}
 .hero-portrait{position:relative;display:flex;align-items:flex-end;justify-content:center;container-type:inline-size}
-.hero-portrait img{position:relative;z-index:1;width:100%;height:auto;max-width:380px;display:block}
+/* fade only the photo's lower 20% (masking the wrapper would crop the overflowing shapes) */
+.hero-portrait img{position:relative;z-index:1;width:100%;height:auto;max-width:380px;display:block;
+  -webkit-mask-image:linear-gradient(to bottom,#000 90%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 80%, transparent 100%)}
 /* big brand shapes behind him — sized in cqw so they scale together with the photo */
 /* on load they "draw in" from the bottom upward, like a stroke trim-path */
 .hp-line{position:absolute;z-index:0;width:11.58cqw;height:100%;top:5%;left:-32%;
   background:var(--purple);transform:rotate(-36deg);transform-origin:top center;
-  animation:hpLineDraw 1.1s cubic-bezier(.2,.7,.2,1) .35s both}
-.hp-arc{position:absolute;z-index:0;width:93.68cqw;height:93.68cqw;top:7%;right:-15%;overflow:visible}
+  animation:hpLineDraw 1.1s cubic-bezier(.2,.7,.2,1) .35s both;
+  -webkit-mask-image:linear-gradient(to bottom,#000 65%,transparent 92%);
+  mask-image:linear-gradient(to bottom,#000 65%,transparent 92%)}
+.hp-arc{position:absolute;z-index:0;width:93.68cqw;height:93.68cqw;top:7%;right:-15%;overflow:visible;
+  -webkit-mask-image:linear-gradient(to bottom,#000 88%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 88%,transparent 100%)}
 .hp-arc path{stroke:var(--orange);stroke-dasharray:136;stroke-dashoffset:136;
   animation:hpArcDraw 1.35s cubic-bezier(.2,.7,.2,1) .55s forwards}
 @keyframes hpLineDraw{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
@@ -277,7 +284,7 @@ html:not([data-theme="light"]) .hero h1 .accent{filter:drop-shadow(0 2px 14px rg
 .assembly-logo{width:100%;max-width:780px;height:auto;margin-inline:auto;display:block;overflow:visible;
   filter:drop-shadow(0 8px 30px rgba(0,0,0,.4))}
 .assembly-logo path{transform-box:fill-box;transform-origin:50% 50%;
-  transition:transform .85s cubic-bezier(.2,.7,.2,1)}
+  transition:transform .55s cubic-bezier(.2,.7,.2,1)}
 
 /* stats */
 .hero-stats{margin-top:clamp(34px,5vw,60px)}
@@ -631,7 +638,6 @@ main:focus{outline:none}
         <p class="lead">מרכז עם תפוסה מלאה ומתחם משופץ הוא לא מתכון בטוח להצלחה. ניהול שמייצר ערך - זה כן.</p>
         <div class="hero-cta">
           <a href="#contact" class="btn">רוצים השבחה אמיתית? דברו איתי<span class="ar" aria-hidden="true"></span></a>
-          <a href="#about" class="btn-text">איך זה עובד<span class="ar" aria-hidden="true"></span></a>
         </div>
       </div>
       <div class="hero-portrait">
@@ -1133,26 +1139,29 @@ main:focus{outline:none}
     if(!moved) break;
   }
   var scat=B.map(function(o){ return 'translate('+o.ox.toFixed(1)+'px,'+o.oy.toFixed(1)+'px) rotate('+o.ang.toFixed(1)+'deg)'; });
-  paths.forEach(function(p,i){ p.style.transitionDelay=(i*11)+'ms'; p.style.opacity='0'; p.style.transform=scat[i]; });
-  function together(){ paths.forEach(function(p){ p.style.opacity='1'; p.style.transform='none'; }); }
-  function apart(){ paths.forEach(function(p,i){ p.style.opacity='1'; p.style.transform=scat[i]; }); }
+  paths.forEach(function(p,i){ p.style.transform=scat[i]; });
+  function together(){ paths.forEach(function(p){ p.style.transform='none'; }); }
+  function apart(){ paths.forEach(function(p,i){ p.style.transform=scat[i]; }); }
+  // hover behaves like the small logos: snappy, all pieces at once (no per-piece stagger)
+  function snappy(){ paths.forEach(function(p){ p.style.transition=''; p.style.transitionDelay=''; }); }
   var built=false;
   function firstBuild(){ if(built) return; built=true;
-    // hard-reset to the scattered state with no transition, commit it, then animate together
-    paths.forEach(function(p){ p.style.transition='none'; });
-    paths.forEach(function(p,i){ p.style.opacity='0'; p.style.transform=scat[i]; });
+    // hard-reset to the scattered state with no transition, commit it, then assemble piece-by-piece (no fade)
+    paths.forEach(function(p,i){ p.style.transition='none'; p.style.transform=scat[i]; });
     void stage.getBoundingClientRect();
     requestAnimationFrame(function(){ requestAnimationFrame(function(){
-      paths.forEach(function(p,i){ p.style.transition=''; p.style.transitionDelay=(i*14)+'ms'; });
+      paths.forEach(function(p,i){ p.style.transition='transform .5s cubic-bezier(.2,.7,.2,1)'; p.style.transitionDelay=(i*28)+'ms'; });
       together();
     }); });
+    // once the staggered intro is done, hand hover back to the snappy un-staggered transition
+    setTimeout(snappy, paths.length*28 + 600);
   }
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ firstBuild(); io.disconnect(); } }); },{threshold:.25});
     io.observe(stage);
   } else { firstBuild(); }
-  stage.addEventListener('mouseenter',function(){ built=true; apart(); });
-  stage.addEventListener('mouseleave',function(){ built=true; together(); });
+  stage.addEventListener('mouseenter',function(){ built=true; snappy(); apart(); });
+  stage.addEventListener('mouseleave',function(){ built=true; snappy(); together(); });
 })();
 
 // ---- problem icon: rigid strokes fall into a settled pile on hover, rebuild on leave ----
