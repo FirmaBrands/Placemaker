@@ -250,8 +250,8 @@ html:not([data-theme="light"]) .hero h1 .accent{filter:drop-shadow(0 2px 14px rg
 .hero-portrait{position:relative;display:flex;align-items:flex-end;justify-content:center;container-type:inline-size}
 /* fade only the photo's lower 20% (masking the wrapper would crop the overflowing shapes) */
 .hero-portrait img{position:relative;z-index:1;width:100%;height:auto;max-width:380px;display:block;
-  -webkit-mask-image:linear-gradient(to bottom,#000 90%,transparent 100%);
-  mask-image:linear-gradient(to bottom,#000 80%, transparent 100%)}
+  -webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 80%,transparent 100%)}
 /* big brand shapes behind him — sized in cqw so they scale together with the photo */
 /* on load they "draw in" from the bottom upward, like a stroke trim-path */
 .hp-line{position:absolute;z-index:0;width:11.58cqw;height:100%;top:5%;left:-32%;
@@ -296,6 +296,8 @@ html:not([data-theme="light"]) .hero h1 .accent{filter:drop-shadow(0 2px 14px rg
   box-shadow:0 0 16px var(--c,var(--orange))}
 .stat .s-num{font-weight:700;font-size:clamp(2.7rem,6vw,4.6rem);line-height:.9;letter-spacing:-.03em;color:var(--fg)}
 .stat .s-lab{color:var(--fg-58);font-size:1.02rem;margin-top:14px;max-width:24ch}
+.stats-note{margin-top:clamp(24px,3.4vw,40px);color:var(--fg-58);font-size:1.08rem;max-width:52ch}
+.stats-note b{color:var(--fg);font-weight:700}
 
 /* ---------- problem ---------- */
 .problem-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(36px,6vw,76px);align-items:center}
@@ -635,7 +637,7 @@ main:focus{outline:none}
           <span class="l1">בעלי מרכזים מסחריים,</span>
           <span class="accent">יש לי משהו לחדש לכם.</span>
         </h1>
-        <p class="lead">מרכז עם תפוסה מלאה ומתחם משופץ הוא לא מתכון בטוח להצלחה. ניהול שמייצר ערך - זה כן.</p>
+        <p class="lead">מרכז עם תפוסה מלאה ומתחם משופץ הוא לא מתכון בטוח להצלחה.</p>
         <div class="hero-cta">
           <a href="#contact" class="btn">רוצים השבחה אמיתית? דברו איתי<span class="ar" aria-hidden="true"></span></a>
         </div>
@@ -689,9 +691,10 @@ main:focus{outline:none}
       <p class="tag" style="--c:var(--orange)">אני מביא איתי לשטח</p>
       <div class="stats-grid">
         <div class="stat"><span class="s-stick" style="--c:var(--orange)"></span><div class="s-num">27</div><div class="s-lab">שנות ניסיון בליבת המסחר</div></div>
-        <div class="stat"><span class="s-stick" style="--c:var(--purple)"></span><div class="s-num">289,000</div><div class="s-lab">מ״ר של השבחה ב־30 מרכזי מסחר</div></div>
-        <div class="stat"><span class="s-stick" style="--c:var(--olive)"></span><div class="s-num">30</div><div class="s-lab">מרכזים - כולל כאלה שהוגדרו "קשים"</div></div>
+        <div class="stat"><span class="s-stick" style="--c:var(--purple)"></span><div class="s-num">289,000</div><div class="s-lab">מ״ר של השבחה</div></div>
+        <div class="stat"><span class="s-stick" style="--c:var(--olive)"></span><div class="s-num">30</div><div class="s-lab">מרכזי מסחר</div></div>
       </div>
+      <p class="stats-note">מרכזים שהוגדרו "קשים"? <b>שיקמתי, ייצבתי והשבחתי בזמן קצר.</b></p>
     </div>
   </div>
 </section>
@@ -701,9 +704,8 @@ main:focus{outline:none}
   <div class="wrap">
     <div class="problem-grid">
       <div class="prob-copy">
-        <span class="tag" style="--c:var(--purple)">הבעיה האמיתית</span>
         <h2>
-          מרכזים מסחריים לא נכשלים בגלל <span class="x">לוקיישן.</span> הם נכשלים בגלל תפיסה שגויה בניהול הנכס.
+          מרכזים מסחריים לא נכשלים בגלל <span class="x">לוקיישן.</span> הם נכשלים בגלל אותה תפיסה שגויה בניהול הנכס.
         </h2>
         <p class="sub">אנחנו יודעים איך להפוך מרכזים למנועי ערך אמיתי - עם ניהול שמייצר ערך, וניהול שמקצר את הזמן להשבחה.</p>
         <div class="rule"><i></i><i></i><i></i></div>
@@ -768,7 +770,7 @@ main:focus{outline:none}
             <path d="M401.4,555.1v-40.8H60.8v40.8h340.6Z" fill="#db6647"></path>
           </g>
         </svg>
-        <h3>יזם פרטי</h3><p>ליווי אישי וצמוד להשאת ערך הנכס.</p>
+        <h3>יזם פרטי</h3>
       </div>
       <div class="aud-card" style="--c:var(--purple)">
         <svg class="aud-ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="-2304.70 -59.80 505.80 674.70">
@@ -781,7 +783,7 @@ main:focus{outline:none}
             <path d="M-2142,142.5l45,12.1,48.8-182.2-45-12.1-48.8,182.2Z" fill="#695d3d"></path>
           </g>
         </svg>
-        <h3>קבוצת נדל״ן</h3><p>אסטרטגיה אחידה על פני תיק נכסים.</p>
+        <h3>קבוצת נדל״ן</h3>
       </div>
       <div class="aud-card" style="--c:var(--olive)">
         <svg class="aud-ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="-1066.60 -33.40 301.60 618.60">
@@ -790,7 +792,7 @@ main:focus{outline:none}
             <path d="M-1038.5,411.5v153.6h46.9v-159.3c0-7.4,11.1-29.7,18-38.1,25.9-31.5,62.5-33,88.1-23.8,33.1,11.8,54.6,41.5,54.8,75.8v145.5h45.7v-159.3c0-29.1-25.5-69.3-48.4-87.2-37.6-29.4-86.2-35.2-130-15.5-44.1,19.8-72.2,60.1-75.2,108.4h0Z" fill="#db6647"></path>
           </g>
         </svg>
-        <h3>חברה ציבורית</h3><p>ניהול שקוף, ממוקד תשואה ויציבות.</p>
+        <h3>חברה ציבורית</h3>
       </div>
     </div>
   </div>
@@ -800,8 +802,7 @@ main:focus{outline:none}
 <section class="section results reveal" id="results">
   <div class="wrap">
     <div class="section-head">
-      <span class="tag" style="--c:var(--orange)">תוצאות מוכחות</span>
-      <h2>מה שקורה בפועל</h2>
+      <h2>תוצאות מוכחות</h2>
     </div>
     <div class="res-list">
       <div class="res-row" style="--c:var(--orange)">
@@ -820,7 +821,7 @@ main:focus{outline:none}
             <path d="M2655.2,2142.1v-40.8h-109.7v40.8h109.7Z" fill="#ca76e7"></path>
           </g>
         </svg>
-        <div class="r-main"><h3>עליית תפוסה משמעותית</h3><p>תמהיל מדויק שמביא ביקוש אמיתי.</p></div>
+        <div class="r-main"><h3>עליית תפוסה משמעותית</h3></div>
       </div>
       <div class="res-row" style="--c:var(--purple)">
         <span class="r-stick"></span>
@@ -833,7 +834,7 @@ main:focus{outline:none}
             <path d="M-2020.9,2231.7l31.2,26.2,85.4-101.8-31.2-26.2-85.4,101.8h0Z" fill="#db6647"></path>
           </g>
         </svg>
-        <div class="r-main"><h3>עליית פדיונות ורווחיות</h3><p>יותר הכנסות, פחות הפסדים.</p></div>
+        <div class="r-main"><h3>עליית פדיונות ורווחיות</h3></div>
       </div>
       <div class="res-row" style="--c:var(--olive)">
         <span class="r-stick"></span>
@@ -847,7 +848,7 @@ main:focus{outline:none}
             <path d="M429.5,2249v-40.8H34.3v40.8h395.2Z" fill="#db6647"></path>
           </g>
         </svg>
-        <div class="r-main"><h3>יציבות פיננסית ושיפור שווי</h3><p>בסיס איתן לטווח הארוך.</p></div>
+        <div class="r-main"><h3>יציבות פיננסית ושיפור שווי נכס</h3></div>
       </div>
     </div>
   </div>
@@ -857,8 +858,7 @@ main:focus{outline:none}
 <section class="section method reveal" id="method">
   <div class="wrap">
     <div class="section-head">
-      <span class="tag" style="--c:var(--purple)">אני עושה את זה עם</span>
-      <h2>אסטרטגיה, לא תחזוקה</h2>
+      <h2>אני עושה את זה עם</h2>
     </div>
     <div class="svc-grid">
       <div class="svc">
@@ -874,7 +874,7 @@ main:focus{outline:none}
             </g>
           </g>
         </svg>
-        <h3>זהות ומטרה ברורה</h3><p>הגדרת זהות ומטרה ברורה לכל מרכז.</p>
+        <h3>הגדרת זהות ומטרה ברורה לכל מרכז</h3>
       </div>
       <div class="svc">
         <div class="topbar"><i></i><i></i><i></i></div>
@@ -902,7 +902,7 @@ main:focus{outline:none}
             </g>
           </g>
         </svg>
-        <h3>תמהיל שוכרים</h3><p>תמהיל שוכרים מותאם לקונספט.</p>
+        <h3>תמהיל שוכרים מותאם לקונספט</h3>
       </div>
       <div class="svc">
         <div class="topbar"><i></i><i></i><i></i></div>
@@ -914,7 +914,7 @@ main:focus{outline:none}
             <path d="M-911.8,2011.6c-114.8,0-208,93.1-208,207.9s93.1,207.9,208,207.9,208-93.1,208-207.9-93.1-207.9-208-207.9ZM-911.8,2387.2c-92.6,0-167.6-75-167.6-167.6s75-167.6,167.6-167.6,167.6,75,167.6,167.6-75,167.6-167.6,167.6Z" fill="#ca76e7"></path>
           </g>
         </svg>
-        <h3>הובלה אסטרטגית</h3><p>ניהול והובלה אסטרטגית מתמשכת.</p>
+        <h3>ניהול והובלה אסטרטגית מתמשכת</h3>
       </div>
     </div>
   </div>
