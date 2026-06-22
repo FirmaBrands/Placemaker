@@ -141,10 +141,6 @@ img,svg{display:block}
 .reveal.in .build i:nth-child(2){transition-delay:.22s}
 .reveal.in .build i:nth-child(3){transition-delay:.36s}
 .reveal.in .build i:nth-child(4){transition-delay:.50s}
-.fx{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.fl{position:absolute;width:42px;height:2px;background:var(--c,var(--orange));color:var(--c,var(--orange));opacity:.5;
-  transform:rotate(var(--r,0deg));box-shadow:0 0 12px currentColor}
-
 /* ---------- eyebrows / section tags ---------- */
 .eyebrow{display:inline-flex;align-items:center;gap:14px;font-weight:700;font-size:.98rem;
   letter-spacing:.01em;color:var(--fg)}
@@ -230,7 +226,7 @@ html[data-theme="light"] .theme-toggle .ic-sun{display:none}
 html[data-theme="light"] .theme-toggle .ic-moon{display:block}
 
 /* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;padding-block:clamp(72px,11vw,138px) clamp(52px,7vw,90px)}
+.hero{position:relative;overflow:hidden;padding-block:clamp(48px,7vw,96px) clamp(52px,7vw,90px)}
 .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:var(--hero-wash);
   background:
     radial-gradient(60% 70% at 82% 6%,rgba(219,102,71,.20),transparent 60%),
@@ -238,7 +234,7 @@ html[data-theme="light"] .theme-toggle .ic-moon{display:block}
     radial-gradient(60% 55% at 50% 108%,rgba(105,93,61,.18),transparent 60%)}
 .hero .wrap{position:relative;z-index:1}
 .hero-copy{max-width:78%}
-.hero h1{font-size:clamp(2.5rem,5.8vw,5rem);line-height:1.02;letter-spacing:-.032em;margin-top:32px;text-wrap:balance}
+.hero h1{font-size:clamp(2.4rem,4.6vw,4.1rem);line-height:1.06;letter-spacing:-.03em;margin-top:24px;text-wrap:balance}
 .hero h1 .l1{display:block;color:var(--fg);text-wrap:balance}
 .hero h1 .accent{display:block;width:fit-content;color:var(--fg);text-wrap:balance;
   text-decoration:underline;text-decoration-color:var(--orange);
@@ -247,12 +243,26 @@ html:not([data-theme="light"]) .hero h1 .accent{filter:drop-shadow(0 2px 14px rg
 .hero .lead{font-size:clamp(1.16rem,2.1vw,1.52rem);color:var(--fg-78);max-width:44ch;margin-top:32px;text-wrap:pretty}
 .hero-cta{display:flex;align-items:center;gap:10px 26px;flex-wrap:wrap;margin-top:44px}
 
+/* hero top row: copy (right) + portrait (left) */
+.hero-top{display:grid;grid-template-columns:1fr clamp(270px,31%,370px);
+  gap:clamp(26px,4.5vw,56px);align-items:stretch}
+.hero-top .hero-copy{max-width:100%;align-self:center}
+/* portrait matches the copy block's height, shown in full — never cropped */
+.hero-portrait{position:relative}
+.hero-portrait img{position:absolute;inset:0;width:100%;height:100%;display:block;
+  object-fit:contain;object-position:center}
+@media(max-width:820px){
+  /* once it would stack onto a new line, drop the portrait entirely */
+  .hero-top{grid-template-columns:1fr;gap:0}
+  .hero-portrait{display:none}
+}
+
+/* brand + stats: a soft tinted band that fades at both edges (no hard divider) */
+.brand-section{position:relative;padding-block:clamp(56px,9vw,116px);
+  background:linear-gradient(180deg,transparent 0%,var(--panel) 20%,var(--panel) 80%,transparent 100%)}
 /* brand-build: the wordmark assembles itself from its strokes */
-.brand-build{position:relative;margin-top:clamp(60px,9vw,108px);
-  border:1px solid var(--hair);background:var(--panel);
-  padding:clamp(34px,5vw,64px) clamp(24px,4vw,56px);overflow:hidden}
-.brand-build::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:var(--hero-wash);
-  background:radial-gradient(70% 120% at 50% 120%,rgba(219,102,71,.12),transparent 70%)}
+.brand-build{position:relative;margin-top:0;
+  padding:clamp(8px,1.6vw,20px) 0;overflow:visible}
 .assembly{position:relative;-webkit-tap-highlight-color:transparent}
 .assembly-logo{width:100%;max-width:780px;height:auto;margin-inline:auto;display:block;overflow:visible;
   filter:drop-shadow(0 8px 30px rgba(0,0,0,.4))}
@@ -260,7 +270,7 @@ html:not([data-theme="light"]) .hero h1 .accent{filter:drop-shadow(0 2px 14px rg
   transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .5s ease}
 
 /* stats */
-.hero-stats{margin-top:clamp(50px,7vw,84px)}
+.hero-stats{margin-top:clamp(34px,5vw,60px)}
 .hero-stats .tag{margin-bottom:34px}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr)}
 .stat{position:relative;padding:8px 0 8px 30px}
@@ -276,10 +286,7 @@ html:not([data-theme="light"]) .hero h1 .accent{filter:drop-shadow(0 2px 14px rg
 .problem h2 .x{color:var(--orange);text-shadow:0 0 30px rgba(219,102,71,.5)}
 .problem .sub{color:var(--fg-78);font-size:1.18rem;margin-top:26px;max-width:46ch;text-wrap:pretty}
 .problem-art{position:relative;display:flex;justify-content:center}
-.problem-art::before{content:"";position:absolute;inset:8% 14%;opacity:var(--hero-wash);
-  background:radial-gradient(circle,rgba(202,118,231,.18),transparent 70%)}
-.problem-art svg{position:relative;width:100%;max-width:280px;height:auto;display:block;overflow:visible;
-  filter:drop-shadow(0 6px 20px rgba(0,0,0,.35))}
+.problem-art svg{position:relative;width:100%;max-width:280px;height:auto;display:block;overflow:visible}
 .problem-art svg path{transform-box:fill-box;transform-origin:center}
 
 /* ---------- about ---------- */
@@ -385,10 +392,10 @@ html:not([data-theme="light"]) .hero h1 .accent{filter:drop-shadow(0 2px 14px rg
 .contact{background:var(--cream);color:var(--ink);border-top:none;position:relative;overflow:hidden}
 .contact::before{content:"";position:absolute;top:0;inset-inline:0;height:7px;z-index:2;
   background:linear-gradient(90deg,var(--orange) 0 25%,var(--purple) 25% 50%,var(--olive) 50% 75%,var(--orange) 75% 100%)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,82px);align-items:start}
+.contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,5vw,72px);align-items:stretch}
 .contact .tag{color:var(--ink)}
 .contact .tag::before{box-shadow:none}
-.contact h2{font-size:clamp(1.95rem,4.3vw,3.2rem);max-width:16ch;margin-top:22px;line-height:1.14;color:var(--ink);text-wrap:balance}
+.contact h2{font-size:clamp(1.95rem,4.3vw,3.2rem);max-width:18ch;margin-top:22px;line-height:1.14;color:var(--ink);text-wrap:balance}
 .tagbars{margin-top:38px}
 .tagbars span{display:flex;align-items:center;gap:22px;font-size:1.14rem;font-weight:700;color:var(--ink);
   padding:18px 2px;border-top:1px solid var(--ink-hair);transition:padding-inline-start .3s ease}
@@ -403,37 +410,6 @@ html:not([data-theme="light"]) .hero h1 .accent{filter:drop-shadow(0 2px 14px rg
 .tagbars span:nth-child(4)::before{background:var(--orange)}
 .tagbars span:nth-child(5)::before{background:var(--purple)}
 
-/* form */
-form{position:relative;border:1px solid var(--ink-hair);padding:clamp(28px,3.4vw,44px);background:var(--cream)}
-.form-head{display:flex;gap:8px;margin-bottom:4px}
-.form-head i{height:6px;flex:1;background:var(--orange)}
-.form-head i:nth-child(2){background:var(--purple)}
-.form-head i:nth-child(3){background:var(--olive)}
-.form-head i:nth-child(4){background:var(--orange)}
-form h3{font-size:1.55rem;margin:26px 0 6px;color:var(--ink)}
-.field{margin-top:24px}
-form label{display:block;font-weight:700;font-size:.96rem;margin-bottom:8px;color:var(--ink)}
-input,select,textarea{width:100%;padding:12px 2px;border:none;border-bottom:1.5px solid var(--ink);
-  background:transparent;color:var(--ink);border-radius:0;font-family:inherit;font-size:1.05rem;font-weight:400;
-  transition:border-color .2s ease}
-input::placeholder,textarea::placeholder{color:rgba(0,0,0,.56)}
-select{padding-inline-end:24px}
-input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--orange);border-bottom-width:2px}
-textarea{resize:vertical;min-height:80px;line-height:1.6}
-form .btn{width:100%;justify-content:center;margin-top:36px;font-size:1.1rem;padding:18px}
-form .btn::before{background:var(--ink)}
-form .btn:hover{color:var(--cream)}
-.form-thanks{display:none;padding:38px 4px;text-align:center}
-.form-thanks.show{display:block}
-.form-thanks .check{width:64px;height:64px;background:var(--orange);color:var(--cream);display:flex;
-  align-items:center;justify-content:center;margin:0 auto 22px;font-size:2rem;font-weight:700}
-.form-thanks h3{margin:0 0 8px}
-.form-thanks p{color:var(--ink-70)}
-form.sent .form-fields{display:none}
-.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0;pointer-events:none}
-.form-error{display:none;align-items:center;gap:10px;margin-top:18px;color:var(--ink);font-weight:700;font-size:1rem}
-.form-error.show{display:flex}
-.form-error::before{content:"";width:18px;height:5px;background:var(--orange);flex:0 0 auto}
 
 /* ---------- footer (always dark) ---------- */
 footer{background:var(--ink);color:var(--cream-58);padding-block:clamp(44px,6vw,68px);border-top:1px solid rgba(255,255,243,.08)}
@@ -449,45 +425,54 @@ footer{background:var(--ink);color:var(--cream-58);padding-block:clamp(44px,6vw,
 .credit a{color:var(--orange);font-weight:700}
 .credit a:hover{text-decoration:underline}
 
-/* ---------- light-theme calming of the neon glows ---------- */
-html[data-theme="light"] .rule i,
-html[data-theme="light"] .stat .s-stick,
-html[data-theme="light"] .eyebrow::before,
-html[data-theme="light"] .tag::before,
-html[data-theme="light"] .goal::before,
-html[data-theme="light"] .goal-list li::before,
-html[data-theme="light"] .aud-card::after,
-html[data-theme="light"] .res-row .r-stick,
-html[data-theme="light"] .svc .topbar i,
-html[data-theme="light"] .nav-links a::after,
-html[data-theme="light"] .fl{box-shadow:none}
-html[data-theme="light"] .problem h2 .x,
-html[data-theme="light"] .about .name b{text-shadow:none}
-html[data-theme="light"] .assembly-logo,
-html[data-theme="light"] .problem-art svg,
-html[data-theme="light"] .aud-ic,
-html[data-theme="light"] .res-ic,
-html[data-theme="light"] .svc-ic{filter:none}
-html[data-theme="light"] .btn:hover{box-shadow:none}
+/* ---------- calming of the neon glows (all themes) ---------- */
+.rule i,
+.stat .s-stick,
+.eyebrow::before,
+.tag::before,
+.goal::before,
+.goal-list li::before,
+.aud-card::after,
+.res-row .r-stick,
+.svc .topbar i,
+.nav-links a::after,
+.eq .strip i,
+.ew::after{box-shadow:none!important}
+.problem h2 .x,
+.about .name b,
+.eq-claim em{text-shadow:none!important}
+.hero h1 .accent,
+.assembly-logo,
+.problem-art svg,
+.aud-ic,
+.res-ic,
+.svc-ic{filter:none!important}
+.btn:hover{box-shadow:none!important}
 
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .85s ease,transform .85s ease}
 .reveal.in{opacity:1;transform:none}
 
-/* ---------- direct contact (in light contact section) ---------- */
-.contact-direct{margin-top:42px}
-.cd-lead{font-weight:700;color:var(--ink);margin-bottom:12px}
-.cd-item{display:flex;align-items:center;gap:18px;padding:16px 2px;border-top:1px solid var(--ink-hair);color:var(--ink);transition:padding-inline-start .3s ease}
+/* ---------- direct contact card (right column of contact section) ---------- */
+.contact-card{position:relative;display:flex;flex-direction:column;
+  border:1px solid var(--ink-hair);background:var(--cream);
+  padding:clamp(28px,3.2vw,44px) clamp(24px,3vw,40px);height:100%}
+.contact-card-bars{display:flex;gap:8px;margin-bottom:30px}
+.contact-card-bars i{height:6px;flex:1;background:var(--orange)}
+.contact-card-bars i:nth-child(2){background:var(--purple)}
+.contact-card-bars i:nth-child(3){background:var(--olive)}
+.contact-card-bars i:nth-child(4){background:var(--orange)}
+.contact-card h3{font-size:clamp(1.4rem,2.4vw,1.85rem);color:var(--ink);line-height:1.2;margin-bottom:6px}
+.contact-direct{margin-top:24px}
+.cd-lead{font-weight:700;color:var(--ink-70);margin-bottom:6px}
+.cd-item{display:flex;align-items:center;gap:18px;padding:20px 2px;border-top:1px solid var(--ink-hair);color:var(--ink);transition:padding-inline-start .3s ease}
 .cd-item:last-child{border-bottom:1px solid var(--ink-hair)}
-.cd-item:hover{padding-inline-start:12px}
-.cd-stick{width:30px;height:5px;flex:0 0 auto;background:var(--c,var(--orange))}
+.cd-item:hover{padding-inline-start:14px}
+.cd-stick{width:30px;height:5px;flex:0 0 auto;background:var(--c,var(--orange));transition:width .3s ease}
+.cd-item:hover .cd-stick{width:44px}
 .cd-txt{font-size:1.1rem}
 
-/* ---------- form: inline errors + privacy ---------- */
-.field-error{display:none;margin-top:8px;font-size:.92rem;font-weight:700;color:#a83218}
-.field-error.show{display:block}
-input.invalid,textarea.invalid{border-bottom-color:#a83218}
-.form-privacy{margin-top:18px;font-size:.92rem;color:var(--ink-70);line-height:1.65}
+/* ---------- inline link buttons (privacy / footer) ---------- */
 .link-btn{background:none;border:none;padding:0;font:inherit;font-weight:700;color:var(--ink);text-decoration:underline;cursor:pointer}
 .link-btn:hover{color:var(--orange)}
 
@@ -625,13 +610,8 @@ main:focus{outline:none}
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="fx" aria-hidden="true">
-    <span class="fl fl-i" data-r="18" style="--c:var(--orange);--r:18deg;top:14%;left:8%"></span>
-    <span class="fl fl-i" data-r="-26" style="--c:var(--purple);--r:-26deg;top:24%;left:20%"></span>
-    <span class="fl fl-i" data-r="44" style="--c:var(--olive);--r:44deg;top:62%;left:6%"></span>
-    <span class="fl fl-i" data-r="-14" style="--c:var(--orange);--r:-14deg;top:78%;left:18%"></span>
-  </div>
   <div class="wrap">
+    <div class="hero-top">
     <div class="hero-copy">
       <p class="eyebrow">בני חליף · Placemaker</p>
       <h1>
@@ -644,9 +624,18 @@ main:focus{outline:none}
         <a href="#about" class="btn-text">איך זה עובד<span class="ar" aria-hidden="true"></span></a>
       </div>
     </div>
+      <div class="hero-portrait">
+        <img src="benny.webp" alt="בני חליף" width="1183" height="1463" loading="eager" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- BRAND + STATS -->
+<section class="brand-section reveal" id="intro">
+  <div class="wrap">
     <!-- the brand builds itself from its strokes -->
-    <div class="brand-build reveal">
+    <div class="brand-build">
       <div class="assembly" id="assembly" aria-hidden="true">
         <svg class="assembly-logo" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="-1445.60 4238.40 1064.00 174.30">
           <g>
@@ -689,10 +678,6 @@ main:focus{outline:none}
 
 <!-- PROBLEM -->
 <section class="section problem reveal">
-  <div class="fx" aria-hidden="true">
-    <span class="fl fl-i" data-r="-20" style="--c:var(--orange);--r:-20deg;top:18%;left:46%"></span>
-    <span class="fl fl-i" data-r="40" style="--c:var(--olive);--r:40deg;top:80%;left:30%"></span>
-  </div>
   <div class="wrap">
     <div class="problem-grid">
       <div class="prob-copy">
@@ -917,12 +902,6 @@ main:focus{outline:none}
 
 <!-- EQUATION -->
 <section class="eq reveal">
-  <div class="fx" aria-hidden="true">
-    <span class="fl fl-i" data-r="20" style="--c:var(--orange);--r:20deg;top:18%;left:10%"></span>
-    <span class="fl fl-i" data-r="-34" style="--c:var(--purple);--r:-34deg;top:26%;left:82%"></span>
-    <span class="fl fl-i" data-r="48" style="--c:var(--olive);--r:48deg;top:72%;left:14%"></span>
-    <span class="fl fl-i" data-r="-20" style="--c:var(--orange);--r:-20deg;top:78%;left:84%"></span>
-  </div>
   <div class="wrap">
     <div class="strip" aria-hidden="true"><i></i><i></i><i></i></div>
     <p class="kick">מרכז עם</p>
@@ -942,7 +921,7 @@ main:focus{outline:none}
 <section class="section contact reveal" id="contact">
   <div class="wrap">
     <div class="contact-grid">
-      <div>
+      <div class="contact-lead">
         <span class="tag" style="--c:var(--olive)">בקיצור</span>
         <h2>רוצים לראות איך המרכז שלכם יכול לעבוד בשבילכם - לא אתם בשבילו?</h2>
         <div class="tagbars">
@@ -952,50 +931,19 @@ main:focus{outline:none}
           <span>יותר הכנסות</span>
           <span>פחות הפסדים</span>
         </div>
-        <!-- ===== DIRECT CONTACT — replace phone / WhatsApp / email below =====
-             tel: international format. wa.me: digits only, no +, e.g. 972501234567 -->
+      </div>
+      <!-- ===== DIRECT CONTACT — replace phone / WhatsApp / email below =====
+           tel: international format. wa.me: digits only, no +, e.g. 972501234567 -->
+      <aside class="contact-card">
+        <div class="contact-card-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <h3>בואו נדבר על המרכז שלכם</h3>
+        <p class="cd-lead">השאירו לי הודעה או חייגו ישירות — אחזור אליכם בהקדם.</p>
         <div class="contact-direct">
-          <p class="cd-lead">מעדיפים לדבר ישירות?</p>
           <a class="cd-item" style="--c:var(--orange)" href="tel:+972500000000"><span class="cd-stick" aria-hidden="true"></span><span class="cd-txt"><b>טלפון</b> · 050-000-0000</span></a>
           <a class="cd-item" style="--c:var(--purple)" href="https://wa.me/972500000000" target="_blank" rel="noopener"><span class="cd-stick" aria-hidden="true"></span><span class="cd-txt"><b>WhatsApp</b> · שליחת הודעה מהירה</span></a>
           <a class="cd-item" style="--c:var(--olive)" href="mailto:REPLACE@EMAIL.co.il"><span class="cd-stick" aria-hidden="true"></span><span class="cd-txt"><b>אימייל</b> · REPLACE@EMAIL.co.il</span></a>
         </div>
-      </div>
-      <form id="leadForm" novalidate action="https://api.web3forms.com/submit" method="POST">
-        <!-- ===== LEADS DELIVERY: paste your free Web3Forms access key below =====
-             1. Go to https://web3forms.com  2. Enter the email where you want leads
-             3. Copy the access key they email you  4. Replace the value below.        -->
-        <input type="hidden" name="access_key" value="REPLACE_WITH_YOUR_WEB3FORMS_KEY">
-        <input type="hidden" name="subject" value="ליד חדש מהאתר · Placemaker">
-        <input type="hidden" name="from_name" value="Placemaker - דף נחיתה">
-        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="form-head" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-        <div class="form-fields">
-          <h3>השאירו פרטים ואחזור אליכם</h3>
-          <div class="field">
-            <label for="name">שם מלא</label>
-            <input id="name" name="name" type="text" autocomplete="name" required placeholder="השם שלכם" aria-describedby="nameErr">
-            <span class="field-error" id="nameErr" aria-live="polite"></span>
-          </div>
-          <div class="field">
-            <label for="phone">טלפון</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="050-0000000" aria-describedby="phoneErr">
-            <span class="field-error" id="phoneErr" aria-live="polite"></span>
-          </div>
-          <div class="field">
-            <label for="msg">פרטים על המרכז (אופציונלי)</label>
-            <textarea id="msg" name="msg" placeholder="כמה מילים על הנכס והמטרה"></textarea>
-          </div>
-          <button type="submit" class="btn">דברו איתי<span class="ar" aria-hidden="true"></span></button>
-          <p class="form-error" id="formError" role="alert">אופס, השליחה נכשלה. נסו שוב או חייגו אליי ישירות.</p>
-          <p class="form-privacy">הפרטים שלכם נשמרים אצלי בלבד, משמשים ליצירת קשר חוזר ולא מועברים לצד שלישי. <button type="button" class="link-btn" data-modal="privacyModal">מדיניות פרטיות</button></p>
-        </div>
-        <div class="form-thanks" id="thanks" role="status" tabindex="-1">
-          <div class="check" aria-hidden="true">✓</div>
-          <h3>תודה!</h3>
-          <p>קיבלתי את הפרטים ואחזור אליכם בהקדם.</p>
-        </div>
-      </form>
+      </aside>
     </div>
   </div>
 </section>
@@ -1139,36 +1087,6 @@ main:focus{outline:none}
   on();window.addEventListener('scroll',on,{passive:true});
 })();
 
-// ---- floating sticks orient toward the cursor, ease back when idle (pauses when settled / tab hidden) ----
-(function(){
-  var lines=[].slice.call(document.querySelectorAll('.fl-i'));
-  if(!lines.length) return;
-  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-  var active=false,mx=0,my=0,running=false,measured=false;
-  var cur=lines.map(function(el){return parseFloat(el.getAttribute('data-r'))||0;});
-  var cx=new Array(lines.length), cy=new Array(lines.length);
-  // batch all geometry reads here (separate from writes) so the loop never thrashes layout
-  function measure(){ for(var i=0;i<lines.length;i++){ var r=lines[i].getBoundingClientRect(); cx[i]=r.left+r.width/2; cy[i]=r.top+r.height/2; } measured=true; }
-  function loop(){
-    var moving=false;
-    for(var i=0;i<lines.length;i++){
-      var base=parseFloat(lines[i].getAttribute('data-r'))||0, target=base;
-      if(active){ target=Math.atan2(my-cy[i],mx-cx[i])*180/Math.PI; }
-      var diff=((target-cur[i]+540)%360)-180;
-      if(Math.abs(diff)>0.15) moving=true;
-      cur[i]+=diff*0.1;
-      lines[i].style.transform='rotate('+cur[i].toFixed(2)+'deg)';
-    }
-    if((active||moving) && !document.hidden){ requestAnimationFrame(loop); } else { running=false; }
-  }
-  function start(){ if(!running && !document.hidden){ running=true; requestAnimationFrame(loop); } }
-  window.addEventListener('pointermove',function(e){ if(!measured) measure(); active=true;mx=e.clientX;my=e.clientY;start(); },{passive:true});
-  document.addEventListener('mouseleave',function(){active=false;start();});
-  window.addEventListener('scroll',function(){ if(active) measure(); },{passive:true});
-  window.addEventListener('resize',function(){ measured=false; },{passive:true});
-  document.addEventListener('visibilitychange',function(){ if(!document.hidden) start(); });
-})();
-
 // ---- the wordmark assembles from its strokes; breaks apart on hover ----
 (function(){
   var stage=document.getElementById('assembly'); if(!stage) return;
@@ -1306,41 +1224,6 @@ main:focus{outline:none}
     c.addEventListener('click',function(){closeModal(c.closest('.modal'));});});
 })();
 
-// ---- lead form (Web3Forms — delivers leads from a static host like GitHub Pages) ----
-document.getElementById('leadForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  var form=this;
-  var n=document.getElementById('name'),p=document.getElementById('phone');
-  function setErr(el,id,msg){var e=document.getElementById(id);
-    if(msg){el.classList.add('invalid');el.setAttribute('aria-invalid','true');if(e){e.textContent=msg;e.classList.add('show');}}
-    else{el.classList.remove('invalid');el.removeAttribute('aria-invalid');if(e){e.textContent='';e.classList.remove('show');}}}
-  var bad=null;
-  if(!n.value.trim()){setErr(n,'nameErr','נא למלא שם מלא');bad=bad||n;}else setErr(n,'nameErr','');
-  if(!p.value.trim()){setErr(p,'phoneErr','נא למלא מספר טלפון');bad=bad||p;}
-  else if(!/^[0-9+\-\s()]{7,}$/.test(p.value.trim())){setErr(p,'phoneErr','מספר טלפון לא תקין');bad=bad||p;}
-  else setErr(p,'phoneErr','');
-  if(bad){bad.focus();return;}
-  var btn=form.querySelector('button[type="submit"]');
-  var err=document.getElementById('formError');
-  var label=btn.innerHTML;
-  err.classList.remove('show');
-  btn.disabled=true; btn.textContent='שולח…';
-  fetch('https://api.web3forms.com/submit',{
-    method:'POST',
-    headers:{'Accept':'application/json'},
-    body:new FormData(form)
-  }).then(function(r){return r.json();}).then(function(data){
-    if(data.success){
-      form.classList.add('sent');
-      var th=document.getElementById('thanks'); th.classList.add('show'); if(th.focus) th.focus();
-    }else{
-      throw new Error(data.message||'failed');
-    }
-  }).catch(function(){
-    btn.disabled=false; btn.innerHTML=label;
-    err.classList.add('show');
-  });
-});
 </script>
 
 </body>
